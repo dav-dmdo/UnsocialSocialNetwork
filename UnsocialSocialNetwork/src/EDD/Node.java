@@ -26,7 +26,7 @@ public class Node {
         this.usuarioNum= number;
     }//Cierre constructor vacio
         
-    public Nodo(String data, Nodo pNext, int number) {
+    public Node(String data, Node pNext, int number) {
         this.usuario = data;
         this.pNext = pNext;
         this.usuarioNum= number;
@@ -58,14 +58,14 @@ public class Node {
     /**
      * @return the pNext
      */
-    public Nodo getpNext() {
+    public Node getpNext() {
         return pNext;
     }
 
     /**
      * @param pNext the pNext to set
      */
-    public void setpNext(Nodo pNext) {
+    public void setpNext(Node pNext) {
         this.pNext = pNext;
     }
     
