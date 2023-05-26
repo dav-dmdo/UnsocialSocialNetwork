@@ -19,6 +19,7 @@ public class Stack {
     /**
      * CONSTRUCTORS
      */
+    
     //EMPTY CONSTRUCTOR
     public Stack() {
         this.top = this.base = null;
@@ -75,15 +76,14 @@ public class Stack {
     /**
      * This is a recursive method that returns a string ready to be shown.
      *
-     * @param printStack
+     * @param toPrint
      * @return String
      */
-    public String printList(String printStack) {
-        String toPrint = "";
+    public String printList(String toPrint) {
         if (!this.isEmpty()) {
             Node aux = top;
             this.unstack();
-            toPrint += aux.getData() + "-->";
+            toPrint += aux.getData() + "--> ";
             toPrint = printList(toPrint);
             this.stack(aux);
 

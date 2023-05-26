@@ -10,9 +10,8 @@ package EDD;
  * @author Andrea
  * 
  */
-public class Node {
-    private String usuario;
-    private int usuarioNum;
+public class Node <T> {
+    private T data;
     private Node pNext;
     
 
@@ -20,39 +19,30 @@ public class Node {
      * CONSTRUCTOR
      */
     
-    public Node(String data, int number) {
-        this.usuario = data;
-        this.pNext = null;
-        this.usuarioNum= number;
+    public Node(T data) {
+        this.data = data;
+        this.pNext=null;
+        
     }//Cierre constructor vacio
         
-    public Node(String data, Node pNext, int number) {
-        this.usuario = data;
+    public Node(T data, Node pNext) {
+        this.data = data;
         this.pNext = pNext;
-        this.usuarioNum= number;
+       
     }//Cierre constructor
-        
-        
-      /**
-       * GETTERS AND SETTERS
-       */
-      
-      
-        
-    
 
     /**
      * @return the data
      */
-    public String getData() {
-        return usuario;
+    public T getData() {
+        return data;
     }
 
     /**
      * @param data the data to set
      */
-    public void setData(String data) {
-        this.usuario = data;
+    public void setData(T data) {
+        this.data = data;
     }
 
     /**
@@ -68,8 +58,13 @@ public class Node {
     public void setpNext(Node pNext) {
         this.pNext = pNext;
     }
-    
-   
-    
+        
+        
+      /**
+       * GETTERS AND SETTERS
+       */
+      
+      
+        
     
 }
