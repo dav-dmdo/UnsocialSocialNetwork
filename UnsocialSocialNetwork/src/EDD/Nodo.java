@@ -11,7 +11,8 @@ package EDD;
  * @param <T>
  */
 public class Nodo <T>{
-    private T data;
+    private T usuario;
+    private int usuarioNum;
     private Nodo pNext;
     //private Nodo pPrevious;
 
@@ -19,13 +20,16 @@ public class Nodo <T>{
      * CONSTRUCTOR
      */
     
-    public Nodo(T data) {
-        this.data = data;
-        this.pNext = null;}
+    public Nodo(T data, int number) {
+        this.usuario = data;
+        this.pNext = null;
+        this.usuarioNum= number;
+    }
         
-    public Nodo(T data, Nodo pNext) {
-        this.data = data;
+    public Nodo(T data, Nodo pNext, int number) {
+        this.usuario = data;
         this.pNext = pNext;
+        this.usuarioNum= number;
         
         
       /**
@@ -40,14 +44,14 @@ public class Nodo <T>{
      * @return the data
      */
     public T getData() {
-        return data;
+        return usuario;
     }
 
     /**
      * @param data the data to set
      */
     public void setData(T data) {
-        this.data = data;
+        this.usuario = data;
     }
 
     /**
