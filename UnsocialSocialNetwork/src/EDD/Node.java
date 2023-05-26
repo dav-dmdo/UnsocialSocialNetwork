@@ -8,28 +8,29 @@ package EDD;
 /**
  *
  * @author Andrea
- * @param <T>
+ * 
  */
-public class Nodo <T>{
-    private T usuario;
+public class Node {
+    private String usuario;
     private int usuarioNum;
-    private Nodo pNext;
-    //private Nodo pPrevious;
+    private Node pNext;
+    
 
      /**
      * CONSTRUCTOR
      */
     
-    public Nodo(T data, int number) {
+    public Node(String data, int number) {
         this.usuario = data;
         this.pNext = null;
         this.usuarioNum= number;
-    }
+    }//Cierre constructor vacio
         
-    public Nodo(T data, Nodo pNext, int number) {
+    public Nodo(String data, Nodo pNext, int number) {
         this.usuario = data;
         this.pNext = pNext;
         this.usuarioNum= number;
+    }//Cierre constructor
         
         
       /**
@@ -38,19 +39,19 @@ public class Nodo <T>{
       
       
         
-    }
+    
 
     /**
      * @return the data
      */
-    public T getData() {
+    public String getData() {
         return usuario;
     }
 
     /**
      * @param data the data to set
      */
-    public void setData(T data) {
+    public void setData(String data) {
         this.usuario = data;
     }
 
