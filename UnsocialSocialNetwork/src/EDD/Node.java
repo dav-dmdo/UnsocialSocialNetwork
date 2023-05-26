@@ -30,34 +30,6 @@ public class Node <T> {
         this.pNext = pNext;
        
     }//Cierre constructor
-
-    /**
-     * @return the data
-     */
-    public T getData() {
-        return data;
-    }
-
-    /**
-     * @param data the data to set
-     */
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    /**
-     * @return the pNext
-     */
-    public Node getpNext() {
-        return pNext;
-    }
-
-    /**
-     * @param pNext the pNext to set
-     */
-    public void setpNext(Node pNext) {
-        this.pNext = pNext;
-    }
         
         
       /**
