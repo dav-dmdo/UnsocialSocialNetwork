@@ -12,17 +12,17 @@ public class Edge {
     
     private Object destination;
     private int weight;
-    private Edge next;
+    private Edge pNext;
     
     public Edge(Object destination){
         this.destination = destination;
-        this.next = null;        
+        this.pNext = null;        
     }
     
     public Edge(Object destination, int weight){
         this.weight = weight;
         this.destination = destination;
-        this.next = null;        
+        this.pNext = null;        
     }
 
     /**
@@ -54,17 +54,17 @@ public class Edge {
     }
 
     /**
-     * @return the next
+     * @return the pNext
      */
-    public Edge getNext() {
-        return next;
+    public Edge getpNext() {
+        return pNext;
     }
 
     /**
-     * @param next the next to set
+     * @param pNext the pNext to set
      */
-    public void setNext(Edge next) {
-        this.next = next;
+    public void setpNext(Edge pNext) {
+        this.pNext = pNext;
     }
     
     

@@ -10,14 +10,56 @@ package Grafo;
  */
 public class GraphNode {
     
-    Object data;
-    EdgeList list;
-    GraphNode next;
+    private Object data;
+    private EdgeList list;
+    private GraphNode pNext;
     
     public GraphNode(Object data){
         this.data = data;
         this.list = new EdgeList();
-        this.next = null;        
+        this.pNext = null;        
+    }
+
+    /**
+     * @return the data
+     */
+    public Object getData() {
+        return data;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    /**
+     * @return the list
+     */
+    public EdgeList getList() {
+        return list;
+    }
+
+    /**
+     * @param list the list to set
+     */
+    public void setList(EdgeList list) {
+        this.list = list;
+    }
+
+    /**
+     * @return the next
+     */
+    public GraphNode getpNext() {
+        return pNext;
+    }
+
+    /**
+     * @param pNext the next to set
+     */
+    public void setpNext(GraphNode pNext) {
+        this.pNext = pNext;
     }
     
     
