@@ -71,8 +71,15 @@ public class Graph {
                     this.pLast.setpNext(newNode);
                     this.pLast = newNode;                   
                 }else{
-                    GraphNode position = this.pFirst;
-                    while ()
+                    GraphNode previous = this.pFirst;
+                    GraphNode current = this.pFirst.getpNext();
+                    while (data.toString().compareTo(current.getData().toString()) > 0){
+                        previous = current;
+                        current = current.getpNext();
+                    }
+                    newNode.setpNext(current);
+                    previous.setpNext(newNode);
+                    
                 }
             }
             this.size ++;
