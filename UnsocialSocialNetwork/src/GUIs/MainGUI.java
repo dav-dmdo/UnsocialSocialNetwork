@@ -3,19 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUIs;
-import File_management.File_m;
 
 /**
  *
  * @author david
  */
 public class MainGUI extends javax.swing.JFrame {
-    File_m archivo = new File_m();
     /**
      * Creates new form MainGUI
      */
     public MainGUI() {
-        File_m archivo = new File_m();
         initComponents();
         setVisible(true);
     }
@@ -30,31 +27,16 @@ public class MainGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Load_file = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Load_file.setText("Cargar Archivo");
-        Load_file.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Load_fileActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Load_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 170, 50));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 530));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Load_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Load_fileActionPerformed
-        // TODO add your handling code here:
-        archivo.load_file();
-    }//GEN-LAST:event_Load_fileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +74,6 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Load_file;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
