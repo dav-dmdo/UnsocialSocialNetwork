@@ -82,8 +82,25 @@ public class Graph {
                     
                 }
             }
-            this.size ++;
+            this.setSize(this.getSize() + 1);
         }
+    }
+
+    
+    
+    //Agregado
+    /**
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * @param size the size to set
+     */
+    public void setSize(int size) {
+        this.size = size;
     }
     
     
