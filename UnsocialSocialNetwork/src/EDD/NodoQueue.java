@@ -10,11 +10,19 @@ package EDD;
  *
  * @author Andrea
  */
-public class NodoQueue<T> {
-    private T data;
+
+public class NodoQueue {
+    private int data;
     private NodoQueue pNext;
 
-    public NodoQueue(T data, NodoQueue pNext) {
+    public NodoQueue(int data) {
+        this.data = data;
+        this.pNext= null;
+    }
+    
+    
+
+    public NodoQueue(int data, NodoQueue pNext) {
         this.data = data;
         this.pNext = pNext;
     }
@@ -22,14 +30,14 @@ public class NodoQueue<T> {
     /**
      * @return the data
      */
-    public T getData() {
+    public int getData() {
         return data;
     }
 
     /**
      * @param data the data to set
      */
-    public void setData(T data) {
+    public void setData(int data) {
         this.data = data;
     }
 

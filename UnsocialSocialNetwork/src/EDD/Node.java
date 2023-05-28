@@ -18,6 +18,8 @@ public class Node {
 
      /**
      * CONSTRUCTOR
+     * @param data
+     * @param number
      */
     
     public Node(String data, int number) {

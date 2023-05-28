@@ -11,8 +11,8 @@ package EDD;
  */
 public class Queue {
     //ATRIBUTES
-    private Node head;
-    private Node tail;
+    private NodoQueue head;
+    private NodoQueue tail;
     private int size;
 
     //CONSTRUCTOR
@@ -45,30 +45,36 @@ public class Queue {
     
     /**
      * Takes element out of queue (firs element added or head)
+     * @return NodoQUeueu
      */
-    public void deQueue(){
+    public NodoQueue deQueue(){
+        NodoQueue aux =null;
         if (!this.isEmpty()) {
             if (size ==1) {
+                aux = head;
                 this.empty();
                 
             }else{
+            aux = head;
             head = head.getpNext();
             size--;}
             
         }
+        return head;
 }
 
     /**
      * This adds an element to the queue receiving a node.
      * @param toAdd 
      */
-    public void addQueue(Node toAdd) {
+    public void addQueue(int toAdd) {
+        NodoQueue toAdds = new NodoQueue(toAdd);
         if (this.isEmpty()) {
-            this.head = this.tail = toAdd;
+            this.head = this.tail = toAdds;
 
         } else {
-            tail.setpNext(toAdd);
-            tail = toAdd;
+            tail.setpNext(toAdds);
+            tail = toAdds;
         }
         size++;
     }
@@ -81,10 +87,10 @@ public class Queue {
         if (!this.isEmpty()) {
             String toPrint = "";
             for (int i = 0; i < size; i++) {
-                Node current = head;
+                NodoQueue current = head;
                 this.deQueue();
                 toPrint += current.getData() + "--> ";
-                this.addQueue(current);
+                this.addQueue(current.getData());
 
             }
             return toPrint;
@@ -97,28 +103,28 @@ public class Queue {
     /**
      * @return the head
      */
-    public Node getHead() {
+    public NodoQueue getHead() {
         return head;
     }
 
     /**
      * @param head the head to set
      */
-    public void setHead(Node head) {
+    public void setHead(NodoQueue head) {
         this.head = head;
     }
 
     /**
      * @return the tail
      */
-    public Node getTail() {
+    public NodoQueue getTail() {
         return tail;
     }
 
     /**
      * @param tail the tail to set
      */
-    public void setTail(Node tail) {
+    public void setTail(NodoQueue tail) {
         this.tail = tail;
     }
 
