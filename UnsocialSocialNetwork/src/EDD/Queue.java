@@ -11,8 +11,8 @@ package EDD;
  */
 public class Queue {
     //ATRIBUTES
-    private NodoQueue head;
-    private NodoQueue tail;
+    private NodoEDD head;
+    private NodoEDD tail;
     private int size;
 
     //CONSTRUCTOR
@@ -47,8 +47,8 @@ public class Queue {
      * Takes element out of queue (firs element added or head)
      * @return NodoQUeueu
      */
-    public NodoQueue deQueue(){
-        NodoQueue aux =null;
+    public NodoEDD deQueue(){
+        NodoEDD aux =null;
         if (!this.isEmpty()) {
             if (size ==1) {
                 aux = head;
@@ -68,7 +68,7 @@ public class Queue {
      * @param toAdd 
      */
     public void addQueue(int toAdd) {
-        NodoQueue toAdds = new NodoQueue(toAdd);
+        NodoEDD toAdds = new NodoEDD(toAdd);
         if (this.isEmpty()) {
             this.head = this.tail = toAdds;
 
@@ -87,7 +87,7 @@ public class Queue {
         if (!this.isEmpty()) {
             String toPrint = "";
             for (int i = 0; i < size; i++) {
-                NodoQueue current = head;
+                NodoEDD current = head;
                 this.deQueue();
                 toPrint += current.getData() + "--> ";
                 this.addQueue(current.getData());
@@ -103,28 +103,28 @@ public class Queue {
     /**
      * @return the head
      */
-    public NodoQueue getHead() {
+    public NodoEDD getHead() {
         return head;
     }
 
     /**
      * @param head the head to set
      */
-    public void setHead(NodoQueue head) {
+    public void setHead(NodoEDD head) {
         this.head = head;
     }
 
     /**
      * @return the tail
      */
-    public NodoQueue getTail() {
+    public NodoEDD getTail() {
         return tail;
     }
 
     /**
      * @param tail the tail to set
      */
-    public void setTail(NodoQueue tail) {
+    public void setTail(NodoEDD tail) {
         this.tail = tail;
     }
 

@@ -11,18 +11,18 @@ package EDD;
  * @author Andrea
  */
 
-public class NodoQueue {
+public class NodoEDD {
     private int data;
-    private NodoQueue pNext;
+    private NodoEDD pNext;
 
-    public NodoQueue(int data) {
+    public NodoEDD(int data) {
         this.data = data;
         this.pNext= null;
     }
     
     
 
-    public NodoQueue(int data, NodoQueue pNext) {
+    public NodoEDD(int data, NodoEDD pNext) {
         this.data = data;
         this.pNext = pNext;
     }
@@ -44,14 +44,14 @@ public class NodoQueue {
     /**
      * @return the pNext
      */
-    public NodoQueue getpNext() {
+    public NodoEDD getpNext() {
         return pNext;
     }
 
     /**
      * @param pNext the pNext to set
      */
-    public void setpNext(NodoQueue pNext) {
+    public void setpNext(NodoEDD pNext) {
         this.pNext = pNext;
     }
     

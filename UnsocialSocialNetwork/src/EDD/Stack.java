@@ -10,128 +10,59 @@ package EDD;
  * @author Andrea
  */
 public class Stack {
-
-    //Atributes
-    private Node top;
-    private Node base;
+    private NodoEDD top;
+    private NodoEDD base;
     private int size;
 
-    /**
-     * CONSTRUCTORS
-     */
-    
-    //EMPTY CONSTRUCTOR
     public Stack() {
-        this.top = this.base = null;
-        this.size = 0;
-    }//END OF EMPTY CONSTRUCTOR 
-
-    //METHODS
-    /**
-     * Checks if this stack is empty.
-     *
-     * @return true if this stack is empty and false otherwise.
-     */
-    public boolean isEmpty() {
-        return getTop() == null;
-    }
-
-    /**
-     * Empties a stack
-     */
-    public void empty() {
-        this.top = this.base = null;
+        this.top = null;
+        this.base = null;
         this.size = 0;
     }
-
-    /**
-     * Stacks in a pile receiving a Node
-     *
-     * @param nodo
-     */
-    public void stack(Node nodo) {
-        if (this.isEmpty()) {
-            top = base = nodo;
-        } else {
-            nodo.setpNext(top);
-            top = nodo;
-        }
-        size++;
+    
+    public boolean isEmpty(){
+    return top == null;}
+    
+    public void empty(){
+    this.top = this.base = null;
+    this.size = 0;
     }
-
-    /**
-     * Unstack the top element of the stack
-     */
-    public void unstack() {
+    
+    public NodoEDD pile(int t){
+    NodoEDD toAdd = new NodoEDD(t);
+    if(this.isEmpty()){
+    top = base = toAdd;
+    }else{
+    toAdd.setpNext(top);
+    top = toAdd;}
+    size++;
+    return toAdd;
+    
+    }
+    
+    public NodoEDD unpile(){
+        NodoEDD toReturn = null;
         if (!this.isEmpty()) {
-            if (size == 1) {
+            if (size==1) {
+                toReturn = top;
                 this.empty();
-            } else {
-                top = top.getpNext();
-                size--;
-            }
-        }
-    }
 
-    /**
-     * This is a recursive method that returns a string ready to be shown.
-     *
-     * @param toPrint
-     * @return String
-     */
-    public String printList(String toPrint) {
+            }else{
+            toReturn = top;
+            top = top.getpNext();
+            size--;}
+            
+        }return toReturn;
+}
+
+    public String print(String printStack){
         if (!this.isEmpty()) {
-            Node aux = top;
-            this.unstack();
-            toPrint += aux.getData() + "--> ";
-            toPrint = printList(toPrint);
-            this.stack(aux);
-
+            NodoEDD actual = top;
+            this.unpile();
+            printStack += print(printStack);
+            this.pile(actual.getData());
         }
-        return toPrint;
-    }
-
-    //GETTERS AND SETTERS
-    /**
-     * @return the top
-     */
-    public Node getTop() {
-        return top;
-    }
-
-    /**
-     * @param top the top to set
-     */
-    public void setTop(Node top) {
-        this.top = top;
-    }
-
-    /**
-     * @return the base
-     */
-    public Node getBase() {
-        return base;
-    }
-
-    /**
-     * @param base the base to set
-     */
-    public void setBase(Node base) {
-        this.base = base;
-    }
-
-    /**
-     * @return the size
-     */
-    public int getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the size to set
-     */
-    public void setSize(int size) {
-        this.size = size;
-    }
-
+        return printStack;
+}
+    
 }

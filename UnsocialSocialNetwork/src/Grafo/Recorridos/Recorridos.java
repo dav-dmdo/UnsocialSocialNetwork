@@ -5,11 +5,14 @@
  */
 package Grafo.Recorridos;
 
-import EDD.Node;
-import EDD.NodoQueue;
+////import EDD.Node;
+////import EDD.NodoEDD;
 import EDD.Queue;
+import EDD.Stack;
+
 import Grafo.EdgeList;
 import Grafo.Graph;
+import Grafo.Vertex;
 
 /**
  *
@@ -23,7 +26,7 @@ import Grafo.Graph;
 public class Recorridos {
 
     /**
-     * This reads your graph using Breadth First Search.
+     * This reads your graph using Depth First Search.
      *
      * @author Andrea
      * @param grafo
@@ -32,28 +35,37 @@ public class Recorridos {
      * @param edges
      * @return String
      */
-    public String BFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
-        String visitedBFS = "";
+//    public String DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
+//       String visitedBFS = " ";
+//
+//        visited[v] = true;
+//        visitedBFS += v + ", ";
+//        for (int i = 0; i < grafo.getSize(); i++) {
+//            if (v != i && !visited[i] && edges.isAdjacent(i)) {
+//                DFS(grafo, i, visited, edges);
+//            }
+//
+//        }
+//        return visitedBFS;
+//    }
 
-        visited[v] = true;
-        visitedBFS += v + ", ";
-        for (int i = 0; i < grafo.getSize(); i++) {
-            if (v != i && !visited[i] && edges.isAdjacent(i)) {
-                BFS(grafo, i, visited, edges);
-            }
-
+        public void DFS(Vertex v){
+            Stack stack = new Stack();
+            stack.pile(v);
+            while(!stack.isEmpty()){
+            int current = stack.unpile().getData();
+            
+            current.}
+            
         }
-        return visitedBFS;
-    }
-
     /**
-     * This makes a Depth-first search of your graph.
+     * This makes a Breadth First Search of your graph.
      *
      * @param g
      * @param edges
      * @return
      */
-    public String DFS(Graph g, EdgeList edges) {
+    public String BFS(Graph g, EdgeList edges) {
         String visitedDFS = "";
         Queue queue = new Queue();
         boolean visited[] = new boolean[g.getSize()];
