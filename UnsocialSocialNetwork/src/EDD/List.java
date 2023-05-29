@@ -63,6 +63,17 @@ public class List {
         return node;
     }
 
+    public int getProduct(int number){
+        int start = 0;
+        NodoEDD current = getPfirst();
+        while(start < getSize()  && current.getpNext() != null){ 
+          if(number == current.getData()){
+              return current.getData();
+          }
+          current = current.getpNext();
+        }
+        return 0;
+    }
     /**
      * @return the pfirst
      */

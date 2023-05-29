@@ -7,12 +7,13 @@ package Grafo.Recorridos;
 
 ////import EDD.Node;
 ////import EDD.NodoEDD;
+import EDD.List;
 import EDD.Queue;
 import EDD.Stack;
 
 import Grafo.EdgeList;
 import Grafo.Graph;
-import Grafo.Vertex;
+
 
 /**
  *
@@ -35,29 +36,47 @@ public class Recorridos {
      * @param edges
      * @return String
      */
-//    public String DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
-//       String visitedBFS = " ";
-//
-//        visited[v] = true;
-//        visitedBFS += v + ", ";
-//        for (int i = 0; i < grafo.getSize(); i++) {
-//            if (v != i && !visited[i] && edges.isAdjacent(i)) {
-//                DFS(grafo, i, visited, edges);
-//            }
-//
-//        }
-//        return visitedBFS;
-//    }
-
-        public void DFS(Vertex v){
-            Stack stack = new Stack();
-            stack.pile(v);
-            while(!stack.isEmpty()){
-            int current = stack.unpile().getData();
-            
-            current.}
-            
+    public String DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
+       String visitedDFS = " ";
+       
+       int counter=0;
+       
+        if (visited == null) {
+            visited = new boolean[grafo.getSize()];
+            //Sets all the isles as no visited
+            for (int i = 0; i < grafo.getSize(); i++) {
+                visited[i]=false;
+                
+            }
+            visited[v] = true; //Sets the first vertex as visited
         }
+        else{
+            for (int i = 0; i < visited.length; i++) {
+                if (visited[i] == visited[v]) {
+                    visited[v]= true; //Sets the origin as visited
+                    
+                }
+                
+            }
+}
+        visitedDFS += v
+       
+       
+
+        visited[v] = true;
+        counter++;
+        visitedDFS += v + ", ";
+        for (int i = 0; i < grafo.getSize(); i++) {
+            
+            if (v != i && !visited[i] && edges.isAdjacent(i)) {
+                DFS(grafo, i, visited, edges);
+            }
+
+        }
+        visitedDFS += "The amount of isles if of " + Integer.toString(counter);
+        return visitedDFS;
+    }
+
     /**
      * This makes a Breadth First Search of your graph.
      *

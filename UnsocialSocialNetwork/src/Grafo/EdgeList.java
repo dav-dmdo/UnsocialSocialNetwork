@@ -101,7 +101,19 @@ public class EdgeList {
         this.size++;
     }
     
+    public Edge FindisAdjacent(Object data){        
+        Edge pCurrent = this.pFirst;
+        boolean found = false;        
+        while ((pCurrent != null) && !(data.toString().equals(pCurrent.getDestination().toString()))){
+            pCurrent = pCurrent.getpNext();
+        }
+        
+        if (pCurrent != null){
+            found = true;
+        }
+        return pCurrent;   
     
+    }
     
     /**
      * @return the pFirst
