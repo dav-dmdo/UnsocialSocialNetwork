@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUIs;
+import File_management.File_m;
 
 /**
  *
@@ -13,6 +14,7 @@ public class MainGUI extends javax.swing.JFrame {
      * Creates new form MainGUI
      */
     public MainGUI() {
+        File_m archivo = new File_m();
         initComponents();
         setVisible(true);
     }
@@ -27,20 +29,16 @@ public class MainGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-<<<<<<< HEAD
         Load_file = new javax.swing.JButton();
         LoadUser = new javax.swing.JButton();
         LoadRelation = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ShowInfo = new javax.swing.JTextArea();
-=======
->>>>>>> origin/david
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-<<<<<<< HEAD
 
         Load_file.setText("Cargar Archivo");
         Load_file.addActionListener(new java.awt.event.ActionListener() {
@@ -62,15 +60,12 @@ public class MainGUI extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 250, 500));
 
-=======
->>>>>>> origin/david
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 530));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void Load_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Load_fileActionPerformed
         // TODO add your handling code here:
         archivo.load_file();
@@ -79,8 +74,6 @@ public class MainGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Load_fileActionPerformed
 
-=======
->>>>>>> origin/david
     /**
      * @param args the command line arguments
      */
@@ -117,13 +110,10 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
     private javax.swing.JButton LoadRelation;
     private javax.swing.JButton LoadUser;
     private javax.swing.JButton Load_file;
     private javax.swing.JTextArea ShowInfo;
-=======
->>>>>>> origin/david
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
