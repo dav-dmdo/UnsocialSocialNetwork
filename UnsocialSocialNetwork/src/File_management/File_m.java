@@ -32,7 +32,7 @@ public class File_m {
             File f = new File(ruta);
             entrada = new Scanner(f);
             while (entrada.hasNext()) {
-                System.out.println(entrada.nextLine());
+                //System.out.println(entrada.nextLine());
                 linea = entrada.nextLine();
                 if (linea.equals("Usuarios")) {
                     flagUser = 1;
