@@ -69,7 +69,11 @@ public class Node {
     }//Cierre constructor vacio
         
     public Node(String data, Node pNext, int number) {
+<<<<<<< HEAD
         this.userName = data;
+=======
+        this.usuario = data;
+>>>>>>> origin/david
         this.pNext = pNext;
         this.userId= number;
     }
@@ -89,6 +93,36 @@ public class Node {
       
         
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return the data
+     */
+    public String getData() {
+        return usuario;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(String data) {
+        this.usuario = data;
+    }
+
+    /**
+     * @return the pNext
+     */
+    public Node getpNext() {
+        return pNext;
+    }
+
+    /**
+     * @param pNext the pNext to set
+     */
+    public void setpNext(Node pNext) {
+        this.pNext = pNext;
+    }
+>>>>>>> origin/david
     
    
     
