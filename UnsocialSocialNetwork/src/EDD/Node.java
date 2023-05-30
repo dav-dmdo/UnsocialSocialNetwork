@@ -11,8 +11,50 @@ package EDD;
  * 
  */
 public class Node {
-    private String usuario;
-    private int usuarioNum;
+
+    /**
+     * @return the userName
+     */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+     * @param userName the userName to set
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    /**
+     * @return the userId
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * @return the pNext
+     */
+    public Node getpNext() {
+        return pNext;
+    }
+
+    /**
+     * @param pNext the pNext to set
+     */
+    public void setpNext(Node pNext) {
+        this.pNext = pNext;
+    }
+    private String userName;
+    private int userId;
     private Node pNext;
     
 
@@ -21,15 +63,22 @@ public class Node {
      */
     
     public Node(String data, int number) {
-        this.usuario = data;
+        this.userName = data;
         this.pNext = null;
-        this.usuarioNum= number;
+        this.userId= number;
     }//Cierre constructor vacio
         
-    public Nodo(String data, Nodo pNext, int number) {
-        this.usuario = data;
+    public Node(String data, Node pNext, int number) {
+        this.userName = data;
         this.pNext = pNext;
-        this.usuarioNum= number;
+        this.userId= number;
+    }
+        
+        
+    public Node() {
+        this.userName = "";
+        this.pNext = pNext;
+        this.userId= 0;
     }//Cierre constructor
         
         
@@ -39,35 +88,7 @@ public class Node {
       
       
         
-    
 
-    /**
-     * @return the data
-     */
-    public String getData() {
-        return usuario;
-    }
-
-    /**
-     * @param data the data to set
-     */
-    public void setData(String data) {
-        this.usuario = data;
-    }
-
-    /**
-     * @return the pNext
-     */
-    public Nodo getpNext() {
-        return pNext;
-    }
-
-    /**
-     * @param pNext the pNext to set
-     */
-    public void setpNext(Nodo pNext) {
-        this.pNext = pNext;
-    }
     
    
     

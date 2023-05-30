@@ -4,7 +4,9 @@
  */
 package Main;
 
+import File_management.File_m;
 import GUIs.MainGUI;
+
 
 /**
  *
@@ -13,11 +15,15 @@ import GUIs.MainGUI;
 public class App {
     MainGUI mainGUI;
     
+    
     public App(){
         this.mainGUI = null;
+        
     }
     
     public void start(){
+        File_m archivo = new File_m();
+        archivo.init_file();
         this.mainGUI = new MainGUI();
     }
 }

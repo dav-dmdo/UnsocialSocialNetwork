@@ -31,6 +31,10 @@ public class MainGUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Load_file = new javax.swing.JButton();
+        LoadUser = new javax.swing.JButton();
+        LoadRelation = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ShowInfo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -45,6 +49,18 @@ public class MainGUI extends javax.swing.JFrame {
         });
         jPanel1.add(Load_file, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 170, 50));
 
+        LoadUser.setText("Cargar Usuario");
+        jPanel1.add(LoadUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 170, 40));
+
+        LoadRelation.setText("Cargar Relacion");
+        jPanel1.add(LoadRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 170, 40));
+
+        ShowInfo.setColumns(20);
+        ShowInfo.setRows(5);
+        jScrollPane1.setViewportView(ShowInfo);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 250, 500));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 530));
 
         pack();
@@ -54,6 +70,9 @@ public class MainGUI extends javax.swing.JFrame {
     private void Load_fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Load_fileActionPerformed
         // TODO add your handling code here:
         archivo.load_file();
+        String aux = "";
+        
+        
     }//GEN-LAST:event_Load_fileActionPerformed
 
     /**
@@ -92,7 +111,11 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LoadRelation;
+    private javax.swing.JButton LoadUser;
     private javax.swing.JButton Load_file;
+    private javax.swing.JTextArea ShowInfo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
