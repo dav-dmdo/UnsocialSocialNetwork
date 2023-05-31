@@ -4,6 +4,8 @@
  */
 package Grafo;
 
+import ImportantClasses.User;
+
 /**
  *
  * @author david
@@ -35,13 +37,13 @@ public class EdgeList {
      * The loop will stop if pCurrent is null or if the Edge was already in the
      * list.
      * @author david
-     * @param data: Object
+     * @param user: User
      * @return found: boolean
      */
-    public boolean isAdjacent(Object data){        
+    public boolean isAdjacent(User user){        
         Edge pCurrent = this.pFirst;
         boolean found = false;        
-        while ((pCurrent != null) && !(data.toString().equals(pCurrent.getDestination().toString()))){
+        while ((pCurrent != null) && !(user.toString().equals(pCurrent.getDestination().toString()))){
             pCurrent = pCurrent.getpNext();
         }
         
@@ -58,7 +60,7 @@ public class EdgeList {
      * @param destination: Object 
      */
     
-    public void newAdjacency(Object destination){
+    public void newAdjacency(User destination){
         if(!isAdjacent(destination)){
             Edge newEdge = new Edge(destination);
             add(newEdge, destination);            
@@ -66,7 +68,7 @@ public class EdgeList {
         
     }
     
-    public void newAdjacency(Object destination, int weight){
+    public void newAdjacency(User destination, int weight){
         if(!isAdjacent(destination)){
             Edge newEdge = new Edge(destination, weight);
             add(newEdge, destination);
@@ -75,7 +77,7 @@ public class EdgeList {
         
     }    
 
-    public void add(Edge edge, Object destination){
+    public void add(Edge edge, User destination){
         if(isEmpty()){
             this.pFirst = edge;
             this.pLast = edge;            
