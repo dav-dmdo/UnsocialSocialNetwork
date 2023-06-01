@@ -138,7 +138,7 @@ public class FileManager {
                     int user1ID = Integer.parseInt(lineArray[0]);
                     int user2ID = Integer.parseInt(lineArray[1]);
                     int weight = Integer.parseInt(lineArray[2]);
-                    //Friendship friendship = new Friendship(user1ID, user2ID, weight);
+                    Friendship friendship = new Friendship(user1ID, user2ID, weight);
                     //graph.newEdge(origin, destination, weight);                                     
                 }
             }

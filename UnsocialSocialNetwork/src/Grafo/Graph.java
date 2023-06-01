@@ -4,6 +4,7 @@
  */
 package Grafo;
 
+import ImportantClasses.Friendship;
 import ImportantClasses.User;
 
 /**
@@ -57,6 +58,12 @@ public class Graph {
             }
             position.getList().newAdjacency(destination, weight);
         }
+        
+    }
+    
+    public void newEdge2(Friendship friendship){
+        
+        
         
     }
     
