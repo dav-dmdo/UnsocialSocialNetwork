@@ -4,6 +4,7 @@
  */
 package Grafo;
 
+import ImportantClasses.Friendship;
 import ImportantClasses.User;
 
 /**
@@ -26,42 +27,51 @@ public class Graph {
         return this.getpFirst() == null;
     }
     
-    public boolean existsNode(User data){
+    
+    public boolean existsNodeID(int userID){
         boolean exists = false;
         if (!isEmpty()){
             GraphNode current = this.getpFirst();
             while ((current != null) && (!exists)){
-                exists = (current.getUser().toString().equals(data.toString()));
+                exists = (current.getUser().getUserID() == userID);
                 current = current.getpNext();
             }            
         }
         return exists;
     }
     
-    public void newEdge(User origin, User destination){
-        if ((existsNode(origin)) && (existsNode(destination))){
-            GraphNode position = this.getpFirst();
-            while (!(position.getUser().toString().equals(origin.toString()))){
-                position = position.getpNext();
-            }
-            position.getList().newAdjacency(destination);
+    public boolean existsNodeUser(User user){
+        boolean exists = false;
+        if (!isEmpty()){
+            GraphNode current = this.getpFirst();
+            while ((current != null) && (!exists)){
+                exists = (current.getUser().toString().equals(user.toString()));
+                current = current.getpNext();
+            }            
         }
-        
-    }
+        return exists;
+    }    
     
-    public void newEdge(User origin, User destination, int weight){
-        if ((existsNode(origin)) && (existsNode(destination))){
-            GraphNode position = this.getpFirst();
-            while (!(position.getUser().toString().equals(origin.toString()))){
-                position = position.getpNext();
+    public void newEdge(Friendship friendship){
+        if ((existsNodeID(friendship.getUser1ID()))&& (existsNodeID(friendship.getUser2ID()))){
+            GraphNode pUser1 = this.getpFirst();
+            GraphNode pUser2 = this.getpFirst();
+            
+            while ((pUser1.getUser().getUserID() != friendship.getUser1ID()) || (pUser2.getUser().getUserID() != friendship.getUser2ID()) ){
+                if (pUser1.getUser().getUserID() != friendship.getUser1ID()){
+                    pUser1 = pUser1.getpNext();
+                }
+                if (pUser2.getUser().getUserID() != friendship.getUser2ID()){
+                    pUser2 = pUser2.getpNext();
+                }
             }
-            position.getList().newAdjacency(destination, weight);
-        }
-        
+            pUser1.getList().newAdjacency(pUser2, friendship.getTime());
+            pUser2.getList().newAdjacency(pUser1, friendship.getTime());            
+        }       
     }
     
     public void newNode(User user){
-        if  (!existsNode(user)){
+        if  (!existsNodeID(user.getUserID())){
             GraphNode newNode = new GraphNode(user);
             if (isEmpty()){
                 this.setpFirst(this.pLast=newNode);
@@ -88,20 +98,54 @@ public class Graph {
         }
     }
     
+    
+    public User user(GraphNode gn){
+        return gn.getUser();
+    }
+    
+    public User user(Edge edge){
+        return edge.getDestination().getUser();
+    }
+    
+    public int id(GraphNode gn){
+        return gn.getUser().getUserID();
+    }
+    
+    public int id(Edge edge){
+        return edge.getDestination().getUser().getUserID();
+    }
+    
+    
     public String usersToString(){
         String users = "Usuarios:\n";
         GraphNode temp = this.pFirst;
         while (temp != null){
-            users+= temp.getUser().toString();
+            users+= user(temp).toString();
             temp = temp.getpNext();
         }
         return users;
     }
     
-    public String friendshipToString(){
+    public String friendshipsToString(){
         String friendships = "Relaciones:\n";
-        
+        GraphNode temp = this.pFirst;
+        while (temp != null){
+            
+            Edge auxEdge = temp.getList().getpFirst();
+            while (auxEdge != null){
+                String auxString =(id(temp)<id(auxEdge)) ? id(temp) + "," + id(auxEdge)+ "," + auxEdge.getWeight() +"\n" : id(auxEdge) + "," + id(temp)+ "," + auxEdge.getWeight()+"\n";
+                friendships += (friendships.contains(auxString)) ? "":auxString;
+                auxEdge = auxEdge.getpNext();
+            }           
+            
+            temp = temp.getpNext();
+        }        
         return friendships;
+    }
+    
+    @Override
+    public String toString(){
+        return usersToString()+friendshipsToString();
     }
 
     /**
@@ -145,6 +189,34 @@ public class Graph {
     public void setSize(int size) {
         this.size = size;
     }
+    
+    /*
+    */
+    /*
+    public void newEdge(User origin, User destination){
+        if ((existsNodeUser(origin)) && (existsNodeUser(destination))){
+            GraphNode position = this.getpFirst();
+            while (!(position.getUser().toString().equals(origin.toString()))){
+                position = position.getpNext();
+            }
+            position.getList().newAdjacency(destination);
+        }
+    }
+    */
+        
+    /*
+    public void newEdge(User origin, User destination, int weight){
+        if ((existsNodeUser(origin)) && (existsNodeUser(destination))){
+            GraphNode position = this.getpFirst();
+            while (!(position.getUser().toString().equals(origin.toString()))){
+                position = position.getpNext();
+            }
+            position.getList().newAdjacency(destination, weight);
+        }
+        
+    }
+    */
+    
     
     
 }

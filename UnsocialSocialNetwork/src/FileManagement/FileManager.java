@@ -30,9 +30,8 @@ public class FileManager {
  */    
     
     public void writeDBtxt(Graph graph) {
-        String users = graph.usersToString();
-
-        String programData = users;
+        
+        String programData = graph.toString();
 
         try {
             PrintWriter pw = new PrintWriter("test\\db.txt");
@@ -49,8 +48,7 @@ public class FileManager {
         Graph graph = new Graph();
         try {
             loadUsers(graph, path);
-            
-
+            loadFriendships(graph, path);           
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -127,6 +125,7 @@ public class FileManager {
             while ((line = reader.readLine()) != null) {
                 if (line.equals("Relaciones")) {                    
                     flag = true;
+                    line = reader.readLine();
                 } else if (line.equals("Usuarios")) {
                     flag = false;                    
                 }
@@ -138,8 +137,8 @@ public class FileManager {
                     int user1ID = Integer.parseInt(lineArray[0]);
                     int user2ID = Integer.parseInt(lineArray[1]);
                     int weight = Integer.parseInt(lineArray[2]);
-                    //Friendship friendship = new Friendship(user1ID, user2ID, weight);
-                    //graph.newEdge(origin, destination, weight);                                     
+                    Friendship friendship = new Friendship(user1ID, user2ID, weight);
+                    graph.newEdge(friendship);
                 }
             }
         } catch (IOException e) {

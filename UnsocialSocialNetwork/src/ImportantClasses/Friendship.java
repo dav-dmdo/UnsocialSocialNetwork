@@ -9,49 +9,47 @@ package ImportantClasses;
  * @author david
  */
 public class Friendship {
-    private User user1;
-    private User user2;
+    private int user1ID;
+    private int user2ID;
     private int time;
 
-    public Friendship(User user1, User user2, int time) {
-        this.user1 = user1;
-        this.user2 = user2;
+    public Friendship(int user1ID, int user2ID, int time) {
+        this.user1ID = user1ID;
+        this.user2ID = user2ID;
         this.time = time;
     }
 
     @Override
     public String toString() {
-        return user1.getUserID() + "," + user2.getUserID() + "," + time + "\n";
-    }
-    
-    
-
-    /**
-     * @return the user1
-     */
-    public User getUser1() {
-        return user1;
+        return getUser1ID() + "," + getUser2ID()+ "," + getTime() + "\n";
     }
 
     /**
-     * @param user1 the user1 to set
+     * @return the user1ID
      */
-    public void setUser1(User user1) {
-        this.user1 = user1;
+    public int getUser1ID() {
+        return user1ID;
     }
 
     /**
-     * @return the user2
+     * @param user1ID the user1ID to set
      */
-    public User getUser2() {
-        return user2;
+    public void setUser1ID(int user1ID) {
+        this.user1ID = user1ID;
     }
 
     /**
-     * @param user2 the user2 to set
+     * @return the user2ID
      */
-    public void setUser2(User user2) {
-        this.user2 = user2;
+    public int getUser2ID() {
+        return user2ID;
+    }
+
+    /**
+     * @param user2ID the user2ID to set
+     */
+    public void setUser2ID(int user2ID) {
+        this.user2ID = user2ID;
     }
 
     /**
@@ -67,6 +65,6 @@ public class Friendship {
     public void setTime(int time) {
         this.time = time;
     }
-    
+       
     
 }
