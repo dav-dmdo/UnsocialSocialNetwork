@@ -5,9 +5,11 @@
  */
 package GUIs;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author Princ
+ * @author Andrea
  */
 public class MainView extends javax.swing.JFrame {
 
@@ -38,6 +40,7 @@ public class MainView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        Exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,25 +57,30 @@ public class MainView extends javax.swing.JFrame {
                 AddUSerActionPerformed(evt);
             }
         });
-        jPanel1.add(AddUSer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+        jPanel1.add(AddUSer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
         RemoveNode.setBackground(new java.awt.Color(0, 0, 255));
         RemoveNode.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         RemoveNode.setForeground(new java.awt.Color(255, 255, 255));
         RemoveNode.setText("Remove friend");
-        jPanel1.add(RemoveNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
+        RemoveNode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveNodeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(RemoveNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
 
         loadFile.setBackground(new java.awt.Color(0, 0, 255));
         loadFile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         loadFile.setForeground(new java.awt.Color(255, 255, 255));
         loadFile.setText("Load Files");
-        jPanel1.add(loadFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+        jPanel1.add(loadFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
 
         showGraph.setBackground(new java.awt.Color(0, 0, 255));
         showGraph.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         showGraph.setForeground(new java.awt.Color(255, 255, 255));
         showGraph.setText("Show Graph");
-        jPanel1.add(showGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, -1));
+        jPanel1.add(showGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
 
         seeIsles.setBackground(new java.awt.Color(0, 0, 255));
         seeIsles.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -83,31 +91,50 @@ public class MainView extends javax.swing.JFrame {
                 seeIslesActionPerformed(evt);
             }
         });
-        jPanel1.add(seeIsles, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
+        jPanel1.add(seeIsles, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, -1));
 
         bridgeCheck.setBackground(new java.awt.Color(0, 0, 255));
         bridgeCheck.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bridgeCheck.setForeground(new java.awt.Color(255, 255, 255));
         bridgeCheck.setText("See Bridges");
-        jPanel1.add(bridgeCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+        bridgeCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bridgeCheckActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bridgeCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("UNSOCIAL SOCIAL NETWORK");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         jScrollPane1.setBackground(java.awt.SystemColor.activeCaptionBorder);
         jScrollPane1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
         jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(0, 0, 255));
         jTextArea1.setRows(5);
+        jTextArea1.setText("Welcome to the Unsocial Social Network! \nHere you will see multiple relations, what do\nyou want to do?\n\n1) Add a friend: Adds a friend with relations.\n2) Remove a friend: removes user and its\n relations.\n 3) Load files: Adds a new file.\n4) Show graph: shows all connections.\n5) See isles: shows the total amount of groups\n users have.\n6) See bridges: allows the user to identify what\n users are bridges to isles.");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 250, 220));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 270, 250));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Princ\\OneDrive\\Pictures\\MINI.png")); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        Exit.setBackground(new java.awt.Color(0, 0, 255));
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 560, 410));
 
@@ -119,8 +146,24 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_seeIslesActionPerformed
 
     private void AddUSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUSerActionPerformed
-        // TODO add your handling code here:
+       AddUser v2= new AddUser();
+       v2.show();
+       
     }//GEN-LAST:event_AddUSerActionPerformed
+
+    private void bridgeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bridgeCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bridgeCheckActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        JOptionPane.showMessageDialog(this, "NOTICE! All your last changes have been saved.");
+        this.dispose();
+    }//GEN-LAST:event_ExitActionPerformed
+
+    private void RemoveNodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveNodeActionPerformed
+       DeleteFriend v3= new DeleteFriend();
+       v3.show();
+    }//GEN-LAST:event_RemoveNodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +203,7 @@ public class MainView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddUSer;
+    private javax.swing.JButton Exit;
     private javax.swing.JButton RemoveNode;
     private javax.swing.JToggleButton bridgeCheck;
     private javax.swing.JLabel jLabel1;

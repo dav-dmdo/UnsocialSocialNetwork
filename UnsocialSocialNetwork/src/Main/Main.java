@@ -4,6 +4,7 @@
  */
 package Main;
 import GUIs.MainGUI;
+import GUIs.MainView;
 
 /**
  *
@@ -16,10 +17,11 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
-        App app = new App();
-        app.start();
+        MainView main = new MainView();
+        main.show();
+//        
+//        App app = new App();
+//        app.start();
     }
     
 }
