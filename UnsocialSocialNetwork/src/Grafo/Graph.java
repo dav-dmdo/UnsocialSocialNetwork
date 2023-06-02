@@ -193,22 +193,8 @@ public class Graph {
         this.pLast = pLast;
     }
 
-    /**
-     * @return the size
-     */
-    public int getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the size to set
-     */
-    public void setSize(int size) {
-        this.size = size;
-    }
-    
-    /*
-    */
+   
+  
     /*
     public void newEdge(User origin, User destination){
         if ((existsNodeUser(origin)) && (existsNodeUser(destination))){
