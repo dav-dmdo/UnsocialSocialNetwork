@@ -12,16 +12,16 @@ import ImportantClasses.User;
  */
 public class Edge {
     
-    private User destination;
+    private GraphNode destination;
     private int weight;
     private Edge pNext;
     
-    public Edge(User destination){
+    public Edge(GraphNode destination){
         this.destination = destination;
         this.pNext = null;        
     }
     
-    public Edge(User destination, int weight){
+    public Edge(GraphNode destination, int weight){
         this.weight = weight;
         this.destination = destination;
         this.pNext = null;        
@@ -30,14 +30,14 @@ public class Edge {
     /**
      * @return the destination
      */
-    public User getDestination() {
+    public GraphNode getDestination() {
         return destination;
     }
 
     /**
      * @param destination the destination to set
      */
-    public void setDestination(User destination) {
+    public void setDestination(GraphNode destination) {
         this.destination = destination;
     }
 
@@ -55,6 +55,7 @@ public class Edge {
         this.weight = weight;
     }
 
+    
     /**
      * @return the pNext
      */
