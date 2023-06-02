@@ -5,6 +5,9 @@
  */
 package GUIs;
 
+import ImportantClasses.Helpers;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrea
@@ -46,6 +49,8 @@ public class AddUser extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         userNicknameInput1 = new javax.swing.JTextField();
         checkUser = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -65,7 +70,7 @@ public class AddUser extends javax.swing.JFrame {
         showUsers.setText("//Set text existent users\n");
         jScrollPane1.setViewportView(showUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 300));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 190));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -97,18 +102,23 @@ public class AddUser extends javax.swing.JFrame {
                 inputRelationActionPerformed(evt);
             }
         });
-        jPanel1.add(inputRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 150, -1));
+        jPanel1.add(inputRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 150, -1));
 
         addRelation.setBackground(new java.awt.Color(0, 0, 255));
         addRelation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addRelation.setForeground(new java.awt.Color(255, 255, 255));
         addRelation.setText("Add ");
-        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
+        addRelation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addRelationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Please enter one or more relations separating them by \",\"");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 340, -1));
+        jLabel3.setText("Press to submit info");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -118,7 +128,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("NOTE: You need to type the user's ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,7 +137,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("ID whom you want to relate to.");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, 20));
 
         exit.setBackground(new java.awt.Color(0, 0, 204));
         exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -167,6 +177,22 @@ public class AddUser extends javax.swing.JFrame {
         });
         jPanel1.add(checkUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 80, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("FINALIZE PROCCESS!");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Please enter one or more relations separating them by \",\"");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 340, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
 
         pack();
@@ -177,11 +203,21 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_userIDInputActionPerformed
 
     private void checkIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkIDActionPerformed
-        // TODO add your handling code here:
+        try{
+        int number = Helpers.valorNumero(userIDInput.getText());
+        //CHECK IF IT EXISTS
+            if (number !=-1) {JOptionPane.showMessageDialog(this, "This is an available ID!");
+                
+            }
+        
+        }catch(Exception e) {
+        JOptionPane.showMessageDialog(this, "This is not a valid ID");
+        userIDInput.setText("");}
+       
     }//GEN-LAST:event_checkIDActionPerformed
 
     private void inputRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRelationActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_inputRelationActionPerformed
 
     private void userNicknameInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNicknameInput1ActionPerformed
@@ -189,12 +225,43 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_userNicknameInput1ActionPerformed
 
     private void checkUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkUserActionPerformed
-        // TODO add your handling code here:
+
+       String username = Helpers.nickname(userNicknameInput1.getText());
+        if (username.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "This is not a valid username");
+           
+        }
+        else if (username.equalsIgnoreCase("no")) {
+            userNicknameInput1.setText("");
+            
+        }else{
+        JOptionPane.showMessageDialog(this, "This nickname is available!");}
+        
     }//GEN-LAST:event_checkUserActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
        this.dispose();
     }//GEN-LAST:event_exitActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void addRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelationActionPerformed
+            try{
+        int number = Helpers.valorNumero(inputRelation.getText());
+        //CHECK IF IT EXISTS
+            if (number !=-1) {JOptionPane.showMessageDialog(this, "This is an available ID!");
+                
+            }
+        
+        }catch(Exception e) {
+        JOptionPane.showMessageDialog(this, "This is not a valid ID");
+        inputRelation.setText("");}
+       
+                                           
+
+    }//GEN-LAST:event_addRelationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +304,9 @@ public class AddUser extends javax.swing.JFrame {
     private javax.swing.JButton checkUser;
     private javax.swing.JButton exit;
     private javax.swing.JTextField inputRelation;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -17,11 +17,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MainView main = new MainView();
-        main.show();
-//        
-//        App app = new App();
-//        app.start();
+ MainView v1 = new MainView();
+ v1.show();
     }
     
 }
