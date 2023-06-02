@@ -4,6 +4,8 @@
  */
 package GUIs;
 
+import Grafo.Graph;
+
 /**
  *
  * @author david
@@ -12,6 +14,8 @@ public class MainGUI extends javax.swing.JFrame {
     /**
      * Creates new form MainGUI
      */
+    private Graph graph;
+    
     public MainGUI() {
         initComponents();
         setVisible(true);
@@ -27,16 +31,30 @@ public class MainGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        chooseFileBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 530));
+
+        chooseFileBttn.setText("Cargar nuevo archivo");
+        chooseFileBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseFileBttnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(chooseFileBttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 560));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void chooseFileBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseFileBttnActionPerformed
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+    }//GEN-LAST:event_chooseFileBttnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -74,6 +92,7 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton chooseFileBttn;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,18 +4,24 @@
  */
 package Grafo;
 
+import ImportantClasses.User;
+
 /**
  *
  * @author david
  */
 public class GraphNode {
     
+<<<<<<< HEAD
     private Object data; //user id
+=======
+    private User user;
+>>>>>>> david
     private EdgeList list;
     private GraphNode pNext;
     
-    public GraphNode(Object data){
-        this.data = data;
+    public GraphNode(User user){
+        this.user = user;
         this.list = new EdgeList();
         this.pNext = null;        
     }
@@ -23,15 +29,15 @@ public class GraphNode {
     /**
      * @return the data
      */
-    public Object getData() {
-        return data;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * @param data the data to set
+     * @param user the data to set
      */
-    public void setData(Object data) {
-        this.data = data;
+    public void setSet(User user) {
+        this.user = user;
     }
 
     /**

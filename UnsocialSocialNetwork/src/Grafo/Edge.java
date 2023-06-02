@@ -4,22 +4,24 @@
  */
 package Grafo;
 
+import ImportantClasses.User;
+
 /**
  *
  * @author david
  */
 public class Edge {
     
-    private Object destination;
+    private GraphNode destination;
     private int weight;
     private Edge pNext;
     
-    public Edge(Object destination){
+    public Edge(GraphNode destination){
         this.destination = destination;
         this.pNext = null;        
     }
     
-    public Edge(Object destination, int weight){
+    public Edge(GraphNode destination, int weight){
         this.weight = weight;
         this.destination = destination;
         this.pNext = null;        
@@ -28,14 +30,14 @@ public class Edge {
     /**
      * @return the destination
      */
-    public Object getDestination() {
+    public GraphNode getDestination() {
         return destination;
     }
 
     /**
      * @param destination the destination to set
      */
-    public void setDestination(Object destination) {
+    public void setDestination(GraphNode destination) {
         this.destination = destination;
     }
 
@@ -53,6 +55,7 @@ public class Edge {
         this.weight = weight;
     }
 
+    
     /**
      * @return the pNext
      */
