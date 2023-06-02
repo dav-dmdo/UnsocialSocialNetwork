@@ -10,7 +10,7 @@ package Grafo;
  */
 public class GraphNode {
     
-    private Object data;
+    private Object data; //user id
     private EdgeList list;
     private GraphNode pNext;
     

@@ -74,6 +74,23 @@ public class List {
         }
         return 0;
     }
+    
+    public String showList(){
+        String list ="";
+    if(!isEmpty()){
+    NodoEDD aux= pfirst;
+        for (int i = 0; i < size; i++) {
+            list+=aux.getData()+" ";
+            aux = aux.getpNext();
+            
+        }
+}else{
+        list+="No isles, the size is 0";}
+    
+    list += "\nThe total amount of isles is of " +this.size;
+    return list;
+    
+    }
     /**
      * @return the pfirst
      */

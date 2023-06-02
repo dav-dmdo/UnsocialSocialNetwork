@@ -5,11 +5,9 @@
  */
 package Grafo.Recorridos;
 
-////import EDD.Node;
-////import EDD.NodoEDD;
 import EDD.List;
 import EDD.Queue;
-import EDD.Stack;
+
 
 import Grafo.EdgeList;
 import Grafo.Graph;
@@ -25,6 +23,7 @@ import Grafo.Graph;
  * @author Andrea
  */
 public class Recorridos {
+    
 
     /**
      * This reads your graph using Depth First Search.
@@ -36,8 +35,11 @@ public class Recorridos {
      * @param edges
      * @return String
      */
-    public String DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
+    
+    //NEEDS A METHOD THAT FINDS THE VERTEX, SO U CAN SEND THAT.
+    public Results DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
        String visitedDFS = " ";
+       Results response = new Results();
        
        int counter=0;
        
@@ -59,22 +61,33 @@ public class Recorridos {
                 
             }
 }
-        visitedDFS += v
-       
-       
-
-        visited[v] = true;
-        counter++;
-        visitedDFS += v + ", ";
-        for (int i = 0; i < grafo.getSize(); i++) {
-            
-            if (v != i && !visited[i] && edges.isAdjacent(i)) {
+        counter ++;
+        //visitedDFS += v + "has been visited" + ". Isle count: " + Integer.toString(counter);
+        response.getListaDeIslasRecorridas().addLast(v);
+        
+        for (int i = 0; i < visited.length; i++) {
+            if (v != i && !visited[i] && edges.isAdjacent(i)){
                 DFS(grafo, i, visited, edges);
+                
             }
-
+            
         }
-        visitedDFS += "The amount of isles if of " + Integer.toString(counter);
-        return visitedDFS;
+       
+       
+//
+//        visited[v] = true;
+//        counter++;
+//        visitedDFS += v + ", ";
+//        for (int i = 0; i < grafo.getSize(); i++) {
+//            
+//            if (v != i && !visited[i] && edges.isAdjacent(i)) {
+//                DFS(grafo, i, visited, edges);
+//            }
+//
+//        }
+//visitedDFS += "\nThe amount of isles if of " + Integer.toString(counter);
+
+        return response;
     }
 
     /**
@@ -84,22 +97,27 @@ public class Recorridos {
      * @param edges
      * @return
      */
-    public String BFS(Graph g, EdgeList edges) {
-        String visitedDFS = "";
+    public Results BFS(Graph g, EdgeList edges) {
+        String visitedBFS = "";
+        Results response = new Results();
+        int counter = 0;
         Queue queue = new Queue();
         boolean visited[] = new boolean[g.getSize()];
         int currentV;
         for (int i = 0; i < g.getSize(); i++) {
-            visited[i] = false;
+            visited[i] = false; //Sets all the isles as NO visited
 
         }
         for (int i = 0; i < g.getSize(); i++) {
             if (!visited[i]) {
-                queue.addQueue(i);
-                visited[i] = true;
+                queue.addQueue(i); 
+                visited[i] = true; //sets vertex as visited
                 while (!queue.isEmpty()) {
                     currentV = queue.deQueue().getData();
-                    visitedDFS += currentV + ", ";
+                    counter ++;
+                    visitedBFS += currentV + ", ";
+                    response.getListaDeIslasRecorridas().addLast(currentV);
+                    
                     for (int j = 0; j < g.getSize(); j++) {
                         if (currentV != j && edges.isAdjacent(currentV) && !visited[j]) {
                             queue.addQueue(j);
@@ -112,7 +130,30 @@ public class Recorridos {
             }
 
         }
+        //visitedBFS += "The final total of isles is equal to "+ Integer.toString(counter);
 
-        return visitedDFS;
+        return response;
+    }
+    
+    public String BridgeChecker(Graph g, EdgeList edges){
+        String Bridge = "";
+        boolean[] visited = null;
+        
+        Results initial = DFS(g, 0, visited, edges );
+        int RealNumberOfIsles=initial.getSize();
+        for (int i = 0; i < g.getSize(); i++) {
+            //Remove node
+            Results current = DFS(g, i, visited, edges );
+            if (current.getSize() < RealNumberOfIsles) {
+                Bridge += i + " Is a bridge.";
+  
+                
+            }
+
+            
+       
+        
+    }
+        return Bridge;
     }
 }
