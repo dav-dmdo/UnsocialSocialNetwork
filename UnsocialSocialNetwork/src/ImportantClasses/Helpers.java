@@ -83,6 +83,23 @@ public class Helpers {
         }
     return -1;}
         
+    public static int validID2(Graph g, int number) {
+        boolean answer;
+        try {
+            answer = g.existsNodeID(number);
+            if (answer == true) {
+                return number;
+
+            } else if(answer == false){
+                return -1;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "This is not an available ID.");
+           
+        }
+    return -1;}
+        
     
     
     public static String validNickname(Graph graph, String nickname) {
@@ -92,8 +109,8 @@ public class Helpers {
             if (answer ==false) {
                 return nickname;
 
-            } else if(answer == true){
-            return null;}
+            }else if(answer == true){
+            return "0";}
             }
          catch (Exception e) {
             JOptionPane.showMessageDialog(null, "This is not a valid nickname because " + e);

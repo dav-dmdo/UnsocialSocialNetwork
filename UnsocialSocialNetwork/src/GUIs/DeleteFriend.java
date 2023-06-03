@@ -6,6 +6,7 @@
 package GUIs;
 
 import EDD.List;
+import EDD.NodoEDD;
 import static GUIs.AddUser.graph;
 import ImportantClasses.Helpers;
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class DeleteFriend extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        showUsers.setText(graph.usersToString());
     }
 
     /**
@@ -37,7 +39,7 @@ public class DeleteFriend extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        showUsers = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         removeInput = new javax.swing.JTextField();
@@ -56,16 +58,16 @@ public class DeleteFriend extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText("REMOVE FRIEND");
+        jLabel1.setText("REMOVE USERS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("/set text existent users\n");
-        jScrollPane1.setViewportView(jTextArea1);
+        showUsers.setEditable(false);
+        showUsers.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        showUsers.setColumns(20);
+        showUsers.setForeground(new java.awt.Color(0, 0, 0));
+        showUsers.setRows(5);
+        showUsers.setText("\n");
+        jScrollPane1.setViewportView(showUsers);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, 280));
 
@@ -141,10 +143,10 @@ public class DeleteFriend extends javax.swing.JFrame {
         try{
                 String text= removeInput.getText();
                 String[] numbers =text.split(",");
-                List list=null;
+                List list= new List();
                 for (int i = 0; i < numbers.length; i++) {
                     int number = Integer.parseInt(numbers[i]);
-                    number =Helpers.validID(graph, number);
+                    number =Helpers.validID2(graph, number);
                     if (number != -1) {
                         list.addFirst(Integer.parseInt(numbers[i]));
                         
@@ -157,7 +159,15 @@ public class DeleteFriend extends javax.swing.JFrame {
                 
                     
                     
-                }}catch(Exception e){
+                }
+             NodoEDD aux = list.getPfirst();
+                for (int i = 0; i < list.getSize(); i++) {
+                    graph.deleteNode(aux.getData());
+                    showUsers.setText(graph.usersToString());
+                    
+                
+            }
+}catch(Exception e){
                 JOptionPane.showMessageDialog(this, "This is not a valid ID");}
     }//GEN-LAST:event_removeActionPerformed
 
@@ -211,8 +221,8 @@ public class DeleteFriend extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton remove;
     private javax.swing.JTextField removeInput;
+    private javax.swing.JTextArea showUsers;
     // End of variables declaration//GEN-END:variables
 }

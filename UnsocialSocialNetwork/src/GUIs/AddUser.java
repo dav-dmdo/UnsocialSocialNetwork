@@ -6,6 +6,7 @@
 package GUIs;
 
 import EDD.List;
+import EDD.NodoEDD;
 import Grafo.Graph;
 import ImportantClasses.Friendship;
 import ImportantClasses.Helpers;
@@ -32,6 +33,8 @@ public class AddUser extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.graph = graph;
+        showUsers.setText(graph.usersToString());
+
         
     }
 
@@ -63,9 +66,9 @@ public class AddUser extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         userNicknameInput1 = new javax.swing.JTextField();
         checkUser = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Finalize = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        inputRelation1 = new javax.swing.JTextField();
+        inputRelationYear = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         addYears = new javax.swing.JButton();
@@ -79,13 +82,13 @@ public class AddUser extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("ADD A FRIEND!");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
+        showUsers.setEditable(false);
         showUsers.setBackground(java.awt.SystemColor.activeCaptionBorder);
         showUsers.setColumns(20);
         showUsers.setForeground(new java.awt.Color(0, 0, 0));
         showUsers.setRows(5);
-        showUsers.setText("//Set text existent users\n");
         jScrollPane1.setViewportView(showUsers);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 250));
@@ -136,7 +139,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Create user!");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 120, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 70, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -195,29 +198,29 @@ public class AddUser extends javax.swing.JFrame {
         });
         jPanel1.add(checkUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 80, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("FINALIZE PROCCESS!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Finalize.setBackground(new java.awt.Color(0, 0, 255));
+        Finalize.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Finalize.setForeground(new java.awt.Color(255, 255, 255));
+        Finalize.setText("FINALIZE PROCCESS!");
+        Finalize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FinalizeActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        jPanel1.add(Finalize, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("by commas in the same order as users created.");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 380, -1));
 
-        inputRelation1.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        inputRelation1.addActionListener(new java.awt.event.ActionListener() {
+        inputRelationYear.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        inputRelationYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputRelation1ActionPerformed(evt);
+                inputRelationYearActionPerformed(evt);
             }
         });
-        jPanel1.add(inputRelation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 150, -1));
+        jPanel1.add(inputRelationYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 150, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -307,15 +310,16 @@ public class AddUser extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_exitActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void FinalizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizeActionPerformed
         try {
             User user =new User(userID, userNickname);
             graph.newNode(user);
-            
+           // showUsers.setText(userNickname +", "+userID+"\nRelations\n" + relations.showList());
+            showUsers.setText(graph.usersToString());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error " + e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_FinalizeActionPerformed
 
     private void addRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelationActionPerformed
          
@@ -329,7 +333,7 @@ public class AddUser extends javax.swing.JFrame {
                 while(possible == true){
                 for (int i = 0; i < numbers.length; i++) {
                     int number = Integer.parseInt(numbers[i]);
-                    number =Helpers.validID(graph, number);
+                    number =Helpers.validID2(graph, number);
                     if (number != -1) {
                         list.addFirst(Integer.parseInt(numbers[i]));
                         
@@ -356,16 +360,16 @@ public class AddUser extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addRelationActionPerformed
 
-    private void inputRelation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRelation1ActionPerformed
+    private void inputRelationYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRelationYearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputRelation1ActionPerformed
+    }//GEN-LAST:event_inputRelationYearActionPerformed
 
     private void addYearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addYearsActionPerformed
        
         
         
         try{
-                String text= friendshipInput.getText();
+                String text= inputRelationYear.getText();
                 String[] numbers =text.split(",");
                 List list= new List();
                 boolean possible=true;
@@ -383,12 +387,32 @@ public class AddUser extends javax.swing.JFrame {
                     break;}}break;
                 
                 }if (possible==true) {
-                    JOptionPane.showMessageDialog(this, "All the relations are valid! User relations succesfully added");
-                relations = list;
+                    if (relations.isEmpty()) {
+                        JOptionPane.showMessageDialog(this, "Please enter the users you want to be friends with first.");
+                
+            }else{
+                        if (relations.getSize()==list.getSize()) {
+                            yearsFriendship = list;
+                            NodoEDD aux = yearsFriendship.getPfirst();
+                            NodoEDD aux2 = relations.getPfirst();
+                            for (int i = 0; i < yearsFriendship.getSize(); i++) {
+                           Friendship relation = new Friendship(userID,aux2.getData(),aux.getData());
+                           graph.newEdge(relation);
+                                aux = aux.getpNext();
+                                aux2= aux2.getpNext();
+                                
+                            }
+                            JOptionPane.showMessageDialog(this, "Added succesfully!");
+                            
+                            
+                            
+                        }else{
+                        JOptionPane.showMessageDialog(this, "You are missing a parameter.");}
+                    }
+                    
             }
         
         
-        //CHECK IF IT EXISTS
             
         
         }catch(Exception e) {
@@ -436,14 +460,14 @@ public class AddUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Finalize;
     private javax.swing.JButton addRelation;
     private javax.swing.JButton addYears;
     private javax.swing.JButton checkID;
     private javax.swing.JButton checkUser;
     private javax.swing.JButton exit;
     private javax.swing.JTextField friendshipInput;
-    private javax.swing.JTextField inputRelation1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField inputRelationYear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

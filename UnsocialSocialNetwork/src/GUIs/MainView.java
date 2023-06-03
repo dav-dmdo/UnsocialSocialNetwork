@@ -69,7 +69,7 @@ public class MainView extends javax.swing.JFrame {
         RemoveNode.setBackground(new java.awt.Color(0, 0, 255));
         RemoveNode.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         RemoveNode.setForeground(new java.awt.Color(255, 255, 255));
-        RemoveNode.setText("Remove friend");
+        RemoveNode.setText("Remove user");
         RemoveNode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveNodeActionPerformed(evt);
@@ -114,7 +114,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("UNSOCIAL SOCIAL NETWORK");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         Exit.setBackground(new java.awt.Color(0, 0, 255));
         Exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -125,7 +125,7 @@ public class MainView extends javax.swing.JFrame {
                 ExitActionPerformed(evt);
             }
         });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
         jScrollPane1.setBackground(java.awt.SystemColor.activeCaptionBorder);
         jScrollPane1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
@@ -138,10 +138,10 @@ public class MainView extends javax.swing.JFrame {
         jTextArea1.setText("Welcome to the Unsocial Social Network! \nHere you will see multiple relations, what do\nyou want to do?\n\n1) Add a friend: Adds a friend with relations.\n2) Remove a friend: removes user and its\n relations.\n 3) Load files: Adds a new file.\n4) Show graph: shows all connections.\n5) See isles: shows the total amount of groups\n users have.\n6) See bridges: allows the user to identify what\n users are bridges to isles.");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 270, 250));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 270, 250));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/WORLD.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 560, 410));
 
