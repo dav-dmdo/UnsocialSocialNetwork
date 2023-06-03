@@ -52,10 +52,13 @@ public class Main {
         
         FileManager fileManager = new FileManager();
         
+        System.out.println(grafo.toString());
+        
+        
         fileManager.writeDBtxt(grafo);
         
         
-        fileManager.fromJFCtoDB();
+        //fileManager.fromJFCtoDB();
         
         grafo = fileManager.readDBtxt();
         

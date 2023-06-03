@@ -18,37 +18,38 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *This class is meant to handle .txt operations, from writing and reading to
- * copying data from JFileChooser 
+ * This class is meant to handle .txt operations, from writing and reading to
+ * copying data from JFileChooser
+ *
  * @author david
  */
 public class FileManager {
 
-/**
- * Call graph's method ToString and write 
- * @param graph 
- */    
-    
+    private String path = "test\\db.txt";
+
+    /**
+     * Call graph's method ToString and write
+     *
+     * @param graph
+     */
     public void writeDBtxt(Graph graph) {
-        
+
         String programData = graph.toString();
 
-        try {
-            PrintWriter pw = new PrintWriter("test\\db.txt");
-            pw.print(programData);
-            pw.close();
-        } catch (Exception e) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.path))) {
+            writer.write(programData);
+        } catch (IOException e) {
             System.out.println(e);
         }
 
     }
 
-    public Graph readDBtxt() {
-        String path = "test\\db.txt";
+    public Graph readDBtxt() { 
+        
         Graph graph = new Graph();
         try {
-            loadUsers(graph, path);
-            loadFriendships(graph, path);           
+            loadUsers(graph, this.path);
+            loadFriendships(graph, this.path);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -64,7 +65,7 @@ public class FileManager {
 
         if (selected == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            File dbFile = new File("test\\db.txt");
+            File dbFile = new File(this.path);
 
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(selectedFile));
@@ -86,28 +87,28 @@ public class FileManager {
     }
 
     public void loadUsers(Graph graph, String path) {
-        
+
         boolean flag = false;
-        
+
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            
+
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.equals("Usuarios")) {                    
+                if (line.equals("Usuarios")) {
                     flag = true;
                     line = reader.readLine();
                 } else if (line.equals("Relaciones")) {
-                    flag = false;                    
+                    flag = false;
                 }
                 if (flag) {
-                    if (line.contains(" ")){
-                        line = line.replace(" ", "");                        
+                    if (line.contains(" ")) {
+                        line = line.replace(" ", "");
                     }
                     String[] lineArray = line.split(",");
                     int id = Integer.parseInt(lineArray[0]);
                     String name = lineArray[1];
                     User user = new User(id, name);
-                    graph.newNode(user);                                     
+                    graph.newNode(user);
                 }
             }
         } catch (IOException e) {
@@ -115,23 +116,24 @@ public class FileManager {
         }
 
     }
+
     public void loadFriendships(Graph graph, String path) {
-        
+
         boolean flag = false;
-        
+
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            
+
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.equals("Relaciones")) {                    
+                if (line.equals("Relaciones")) {
                     flag = true;
                     line = reader.readLine();
                 } else if (line.equals("Usuarios")) {
-                    flag = false;                    
+                    flag = false;
                 }
                 if (flag) {
-                    if (line.contains(" ")){
-                        line = line.replace(" ", "");                        
+                    if (line.contains(" ")) {
+                        line = line.replace(" ", "");
                     }
                     String[] lineArray = line.split(",");
                     int user1ID = Integer.parseInt(lineArray[0]);

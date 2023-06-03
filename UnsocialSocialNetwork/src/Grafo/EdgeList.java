@@ -31,7 +31,6 @@ public class EdgeList {
         return this.pFirst == null;
     }
 
-
     /**
      * Checks if an Object is stored in the list.pCurrent is an Edge pointer
      * that will be going over the list. The loop will stop if pCurrent is null
@@ -47,7 +46,7 @@ public class EdgeList {
         while ((pCurrent != null) && !(userGN.equals(pCurrent.getDestination()))) {
             pCurrent = pCurrent.getpNext();
         }
-
+        
         if (pCurrent != null) {
             found = true;
         }
@@ -69,12 +68,11 @@ public class EdgeList {
 
     }
 
-    
-/**
- * 
- * @param destination
- * @param weight 
- */
+    /**
+     *
+     * @param destination
+     * @param weight
+     */
     public void newAdjacency(GraphNode destination, int weight) {
         if (!isAdjacent(destination)) {
             Edge newEdge = new Edge(destination, weight);
@@ -110,13 +108,36 @@ public class EdgeList {
                 previous.setpNext(edge);
             }
         }
-
         this.size++;
     }
-    
-    
-    
-    
+
+    public void delete(int id) {
+        if (!isEmpty()) {
+            boolean found = false;
+            Edge current = this.pFirst;
+            Edge previous = null;
+            while ((current != null) && (!found)) {
+                found = (current.getDestination().getUser().getUserID() == id);
+                if (!found) {
+                    previous = current;
+                    current = current.getpNext();
+                }
+            }            
+            if(current != null){
+                if (current == this.pFirst){
+                    this.pFirst = current.getpNext();                    
+                } else {
+                    previous.setpNext(current.getpNext());                    
+                }
+                if (current == this.pLast){
+                    this.pLast = previous;
+                }                
+                current.setpNext(null);                
+                this.size--;
+            }
+        }
+    }
+
     /**
      *
      * @param edge
@@ -130,13 +151,13 @@ public class EdgeList {
             if (destination.toString().compareTo(this.pFirst.getDestination().toString()) <= 0) {
                 edge.setpNext(this.pFirst);
                 this.pFirst = edge;
-            } else if (destination.toString().compareTo(this.pLast.getDestination().toString()) >=0 ) {
+            } else if (destination.toString().compareTo(this.pLast.getDestination().toString()) >= 0) {
                 this.pLast.setpNext(edge);
                 this.pLast = edge;
             } else {
                 Edge previous = this.pFirst;
                 Edge current = this.pFirst.getpNext();
-                
+
                 while (destination.toString().compareTo(current.getDestination().toString()) > 0) {
                     previous = current;
                     current = current.getpNext();
@@ -148,6 +169,7 @@ public class EdgeList {
 
         this.size++;
     }
+
     /**
      * Checks if an Object is stored in the list. pCurrent is an Edge pointer
      * that will be going over the list. The loop will stop if pCurrent is null
@@ -170,14 +192,13 @@ public class EdgeList {
         return found;
 
     }
-    
+
     /*public void newAdjacency(User destination, int weight) {
         if (!isAdjacent(destination)) {
             Edge newEdge = new Edge(destination, weight);
             add(newEdge, destination);
 
         }*/
-
     /**
      * @return the pFirst
      */
