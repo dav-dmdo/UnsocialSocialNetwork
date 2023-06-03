@@ -31,7 +31,7 @@ public class Graph {
     
     
     
-    private boolean existsNodeID(int userID){
+    public boolean existsNodeID(int userID){
         boolean exists = false;
         if (!isEmpty()){
             GraphNode current = this.getpFirst();
@@ -43,7 +43,20 @@ public class Graph {
         return exists;
     }
     
-    private boolean existsNodeUser(User user){
+
+    public boolean existsNodeID(String userNickname){
+        boolean exists = false;
+        if (!isEmpty()){
+            GraphNode current = this.getpFirst();
+            while ((current != null) && (!exists)){
+                exists = (current.getUser().getUserName().equalsIgnoreCase(userNickname));
+                current = current.getpNext();
+            }            
+        }
+        return exists;
+    }
+    
+    public boolean existsNodeUser(User user){
         boolean exists = false;
         if (!isEmpty()){
             GraphNode current = this.getpFirst();

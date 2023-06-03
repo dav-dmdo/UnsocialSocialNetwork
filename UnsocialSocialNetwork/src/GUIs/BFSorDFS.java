@@ -1,24 +1,21 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package GUIs;
 
-import Grafo.Graph;
-
 /**
  *
- * @author david
+ * @author Princ
  */
-public class MainGUI extends javax.swing.JFrame {
+public class BFSorDFS extends javax.swing.JFrame {
+
     /**
-     * Creates new form MainGUI
+     * Creates new form BFSorDFS
      */
-    private Graph graph;
-    
-    public MainGUI() {
+    public BFSorDFS() {
         initComponents();
-        setVisible(true);
     }
 
     /**
@@ -31,30 +28,15 @@ public class MainGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        chooseFileBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        chooseFileBttn.setText("Cargar nuevo archivo");
-        chooseFileBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chooseFileBttnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(chooseFileBttn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 560));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 340));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void chooseFileBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseFileBttnActionPerformed
-        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
-    }//GEN-LAST:event_chooseFileBttnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,26 +55,25 @@ public class MainGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainGUI().setVisible(true);
+                new BFSorDFS().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton chooseFileBttn;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

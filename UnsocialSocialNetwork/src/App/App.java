@@ -4,7 +4,8 @@
  */
 package App;
 
-import GUIs.MainGUI;
+//import GUIs.MainGUI;
+import GUIs.MainView;
 import Grafo.Graph;
 
 /**
@@ -12,7 +13,7 @@ import Grafo.Graph;
  * @author david
  */
 public class App {
-    MainGUI mainGUI;
+    MainView mainGUI;
     Graph graph;
     
     public App(){
@@ -22,6 +23,7 @@ public class App {
     }
     
     public void start(){
-        this.mainGUI = new MainGUI();
+        this.mainGUI = new MainView(graph);
+        this.mainGUI.show();
     }
 }

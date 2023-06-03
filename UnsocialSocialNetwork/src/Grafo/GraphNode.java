@@ -12,7 +12,11 @@ import ImportantClasses.User;
  */
 public class GraphNode {
     
+
+    private Object data; //user id
+
     private User user;
+
     private EdgeList list;
     private GraphNode pNext;
     
