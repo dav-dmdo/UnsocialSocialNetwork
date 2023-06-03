@@ -21,6 +21,7 @@ public class AddUser extends javax.swing.JFrame {
     static int userID;
     static String userNickname;
     static List relations;
+    static List yearsFriendship;
     static Friendship friends;
 
     /**
@@ -50,8 +51,8 @@ public class AddUser extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         userIDInput = new javax.swing.JTextField();
         checkID = new javax.swing.JButton();
-        inputRelation = new javax.swing.JTextField();
-        addRelation = new javax.swing.JButton();
+        friendshipInput = new javax.swing.JTextField();
+        addYears = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -113,24 +114,24 @@ public class AddUser extends javax.swing.JFrame {
         });
         jPanel1.add(checkID, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 80, -1));
 
-        inputRelation.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        inputRelation.addActionListener(new java.awt.event.ActionListener() {
+        friendshipInput.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        friendshipInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputRelationActionPerformed(evt);
+                friendshipInputActionPerformed(evt);
             }
         });
-        jPanel1.add(inputRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 150, -1));
+        jPanel1.add(friendshipInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 150, -1));
 
-        addRelation.setBackground(new java.awt.Color(0, 0, 255));
-        addRelation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addRelation.setForeground(new java.awt.Color(255, 255, 255));
-        addRelation.setText("Add ");
-        addRelation.addActionListener(new java.awt.event.ActionListener() {
+        addYears.setBackground(new java.awt.Color(0, 0, 255));
+        addYears.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addYears.setForeground(new java.awt.Color(255, 255, 255));
+        addYears.setText("Add ");
+        addYears.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addRelationActionPerformed(evt);
+                addYearsActionPerformed(evt);
             }
         });
-        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        jPanel1.add(addYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -237,7 +238,7 @@ public class AddUser extends javax.swing.JFrame {
                 addRelation1ActionPerformed(evt);
             }
         });
-        jPanel1.add(addRelation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
+        jPanel1.add(addRelation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 420));
 
@@ -271,9 +272,9 @@ public class AddUser extends javax.swing.JFrame {
        
     }//GEN-LAST:event_checkIDActionPerformed
 
-    private void inputRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRelationActionPerformed
+    private void friendshipInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_friendshipInputActionPerformed
    
-    }//GEN-LAST:event_inputRelationActionPerformed
+    }//GEN-LAST:event_friendshipInputActionPerformed
 
     private void userNicknameInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNicknameInput1ActionPerformed
         // TODO add your handling code here:
@@ -316,12 +317,12 @@ public class AddUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void addRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelationActionPerformed
+    private void addYearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addYearsActionPerformed
          
         
         
         try{
-                String text= inputRelation.getText();
+                String text= friendshipInput.getText();
                 String[] numbers =text.split(",");
                 List list= new List();
                 boolean possible=true;
@@ -349,11 +350,11 @@ public class AddUser extends javax.swing.JFrame {
         
         }catch(Exception e) {
         JOptionPane.showMessageDialog(this, "ERROR!" +e);
-        inputRelation.setText("");}
+        friendshipInput.setText("");}
        
                                            
 
-    }//GEN-LAST:event_addRelationActionPerformed
+    }//GEN-LAST:event_addYearsActionPerformed
 
     private void inputRelation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRelation1ActionPerformed
         // TODO add your handling code here:
@@ -399,12 +400,12 @@ public class AddUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addRelation;
     private javax.swing.JButton addRelation1;
+    private javax.swing.JButton addYears;
     private javax.swing.JButton checkID;
     private javax.swing.JButton checkUser;
     private javax.swing.JButton exit;
-    private javax.swing.JTextField inputRelation;
+    private javax.swing.JTextField friendshipInput;
     private javax.swing.JTextField inputRelation1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
