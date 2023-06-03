@@ -7,7 +7,9 @@ package GUIs;
 
 import EDD.List;
 import Grafo.Graph;
+import ImportantClasses.Friendship;
 import ImportantClasses.Helpers;
+import ImportantClasses.User;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,7 @@ public class AddUser extends javax.swing.JFrame {
     static int userID;
     static String userNickname;
     static List relations;
+    static Friendship friends;
 
     /**
      * Creates new form AddUser
@@ -61,6 +64,10 @@ public class AddUser extends javax.swing.JFrame {
         checkUser = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        inputRelation1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        addRelation1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,12 +87,12 @@ public class AddUser extends javax.swing.JFrame {
         showUsers.setText("//Set text existent users\n");
         jScrollPane1.setViewportView(showUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 250));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("To add an user you need to fill the folllowing:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
         userIDInput.setBackground(java.awt.SystemColor.activeCaptionBorder);
         userIDInput.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +100,7 @@ public class AddUser extends javax.swing.JFrame {
                 userIDInputActionPerformed(evt);
             }
         });
-        jPanel1.add(userIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 150, -1));
+        jPanel1.add(userIDInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 150, -1));
 
         checkID.setBackground(new java.awt.Color(0, 0, 255));
         checkID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -104,7 +111,7 @@ public class AddUser extends javax.swing.JFrame {
                 checkIDActionPerformed(evt);
             }
         });
-        jPanel1.add(checkID, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 80, -1));
+        jPanel1.add(checkID, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 80, -1));
 
         inputRelation.setBackground(java.awt.SystemColor.activeCaptionBorder);
         inputRelation.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +119,7 @@ public class AddUser extends javax.swing.JFrame {
                 inputRelationActionPerformed(evt);
             }
         });
-        jPanel1.add(inputRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 150, -1));
+        jPanel1.add(inputRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 150, -1));
 
         addRelation.setBackground(new java.awt.Color(0, 0, 255));
         addRelation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -123,22 +130,22 @@ public class AddUser extends javax.swing.JFrame {
                 addRelationActionPerformed(evt);
             }
         });
-        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
+        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Press to submit info");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 120, -1));
+        jLabel3.setText("Create user!");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Please enter your user ID (in numbers)");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 220, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 220, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("NOTE: You need to type the user's ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -147,7 +154,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("ID whom you want to relate to.");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, 20));
 
         exit.setBackground(new java.awt.Color(0, 0, 204));
         exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -158,15 +165,15 @@ public class AddUser extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
+        jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/200x200.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Please enter your username putting \"@\" before the user");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 330, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 330, -1));
 
         userNicknameInput1.setBackground(java.awt.SystemColor.activeCaptionBorder);
         userNicknameInput1.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +181,7 @@ public class AddUser extends javax.swing.JFrame {
                 userNicknameInput1ActionPerformed(evt);
             }
         });
-        jPanel1.add(userNicknameInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 150, -1));
+        jPanel1.add(userNicknameInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 150, -1));
 
         checkUser.setBackground(new java.awt.Color(0, 0, 255));
         checkUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -185,7 +192,7 @@ public class AddUser extends javax.swing.JFrame {
                 checkUserActionPerformed(evt);
             }
         });
-        jPanel1.add(checkUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 80, -1));
+        jPanel1.add(checkUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 80, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -196,14 +203,43 @@ public class AddUser extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Please enter one or more relations separating them by \",\"");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 340, -1));
+        jLabel10.setText("by commas in the same order as users created.");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 380, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
+        inputRelation1.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        inputRelation1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputRelation1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(inputRelation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 150, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Please enter one or more relations separating them by \",\"");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 340, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Please enter their friendship years separating them");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 380, -1));
+
+        addRelation1.setBackground(new java.awt.Color(0, 0, 255));
+        addRelation1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addRelation1.setForeground(new java.awt.Color(255, 255, 255));
+        addRelation1.setText("Add ");
+        addRelation1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addRelation1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addRelation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,6 +284,7 @@ public class AddUser extends javax.swing.JFrame {
        String username = Helpers.nickname(userNicknameInput1.getText());
         if (username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "This is not a valid username");
+            userNicknameInput1.setText("");
            
         }
         else if (username.equalsIgnoreCase("no")) {
@@ -270,28 +307,41 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       //HERE you need to create the user, relation and add it to the graph!
+        try {
+            User user =new User(userID, userNickname);
+            graph.newNode(user);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error " + e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelationActionPerformed
-            try{
+         
+        
+        
+        try{
                 String text= inputRelation.getText();
                 String[] numbers =text.split(",");
-                List list=null;
+                List list= new List();
+                boolean possible=true;
+                while(possible == true){
                 for (int i = 0; i < numbers.length; i++) {
                     int number = Integer.parseInt(numbers[i]);
                     number =Helpers.validID(graph, number);
                     if (number != -1) {
                         list.addFirst(Integer.parseInt(numbers[i]));
                         
+                        
                     }else{
                      JOptionPane.showMessageDialog(this, "This is not an existing ID");
-                    break;}
-
+                     possible = false;
+                    break;}}break;
                 
-                    
-                    
-                }
+                }if (possible==true) {
+                    JOptionPane.showMessageDialog(this, "All the relations are valid! User relations succesfully added");
+                relations = list;
+            }
         
         
         //CHECK IF IT EXISTS
@@ -304,6 +354,14 @@ public class AddUser extends javax.swing.JFrame {
                                            
 
     }//GEN-LAST:event_addRelationActionPerformed
+
+    private void inputRelation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRelation1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputRelation1ActionPerformed
+
+    private void addRelation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelation1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addRelation1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,13 +400,17 @@ public class AddUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addRelation;
+    private javax.swing.JButton addRelation1;
     private javax.swing.JButton checkID;
     private javax.swing.JButton checkUser;
     private javax.swing.JButton exit;
     private javax.swing.JTextField inputRelation;
+    private javax.swing.JTextField inputRelation1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

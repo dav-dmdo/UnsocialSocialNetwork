@@ -70,31 +70,32 @@ public class Helpers {
         boolean answer;
         try {
             answer = g.existsNodeID(number);
-            if (answer == true) {
+            if (answer == false) {
                 return number;
 
-            } else {
+            } else if(answer == true){
                 return -1;
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "This is not an available ID.");
-            return -1;
+           
         }
+    return -1;}
         
-    }
+    
     
     public static String validNickname(Graph graph, String nickname) {
         boolean answer;
         try {
             answer = graph.existsNodeID(nickname);
-            if (answer == true) {
+            if (answer ==false) {
                 return nickname;
 
-            } else {
-                return null;
+            } else if(answer == true){
+            return null;}
             }
-        } catch (Exception e) {
+         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "This is not a valid nickname because " + e);
         }
         return null;
