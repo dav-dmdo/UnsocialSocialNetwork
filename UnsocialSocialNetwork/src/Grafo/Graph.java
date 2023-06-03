@@ -126,6 +126,7 @@ public class Graph {
                 this.pLast = gnPrevious;
             }
             gnUser.setpNext(null);
+            
             numNodes--;
             
                         
