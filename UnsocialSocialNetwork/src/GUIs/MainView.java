@@ -5,6 +5,7 @@
  */
 package GUIs;
 
+import Grafo.Graph;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +13,18 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class MainView extends javax.swing.JFrame {
+    static Graph graph;
+    
 
     /**
      * Creates new form NewJFrame
      */
-    public MainView() {
+    public MainView(Graph graph) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.graph= graph;
+        
     }
 
     /**
@@ -146,7 +153,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_seeIslesActionPerformed
 
     private void AddUSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUSerActionPerformed
-       AddUser v2= new AddUser();
+       AddUser v2= new AddUser(graph);
        v2.show();
        
     }//GEN-LAST:event_AddUSerActionPerformed
@@ -196,7 +203,7 @@ public class MainView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainView().setVisible(true);
+                new MainView(graph).setVisible(true);
             }
         });
     }

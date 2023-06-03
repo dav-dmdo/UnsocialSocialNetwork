@@ -40,6 +40,18 @@ public class Graph {
         return exists;
     }
     
+    public boolean existsNodeID(String userNickname){
+        boolean exists = false;
+        if (!isEmpty()){
+            GraphNode current = this.getpFirst();
+            while ((current != null) && (!exists)){
+                exists = (current.getUser().getUserName().equalsIgnoreCase(userNickname));
+                current = current.getpNext();
+            }            
+        }
+        return exists;
+    }
+    
     public boolean existsNodeUser(User user){
         boolean exists = false;
         if (!isEmpty()){

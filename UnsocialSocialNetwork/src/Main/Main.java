@@ -5,6 +5,7 @@
 package Main;
 import GUIs.MainGUI;
 import GUIs.MainView;
+import Grafo.Graph;
 
 /**
  *
@@ -17,7 +18,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
- MainView v1 = new MainView();
+        Graph graph = new Graph();
+ MainView v1 = new MainView(graph);
  v1.show();
     }
     

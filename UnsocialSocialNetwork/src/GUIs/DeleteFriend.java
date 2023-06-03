@@ -5,6 +5,11 @@
  */
 package GUIs;
 
+import EDD.List;
+import static GUIs.AddUser.graph;
+import ImportantClasses.Helpers;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andrea
@@ -16,6 +21,8 @@ public class DeleteFriend extends javax.swing.JFrame {
      */
     public DeleteFriend() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -126,8 +133,32 @@ public class DeleteFriend extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_removeInputActionPerformed
 
+    /**
+ * This method removes a serie of users
+ * @param evt 
+ */
     private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
-        // TODO add your handling code here:
+        try{
+                String text= removeInput.getText();
+                String[] numbers =text.split(",");
+                List list=null;
+                for (int i = 0; i < numbers.length; i++) {
+                    int number = Integer.parseInt(numbers[i]);
+                    number =Helpers.validID(graph, number);
+                    if (number != -1) {
+                        list.addFirst(Integer.parseInt(numbers[i]));
+                        
+                        //Falta agarrar un for que agarre el primero y lo elimine y asi sucesivamente
+                    
+                    }else{
+                     
+                    break;}
+
+                
+                    
+                    
+                }}catch(Exception e){
+                JOptionPane.showMessageDialog(this, "This is not a valid ID");}
     }//GEN-LAST:event_removeActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed

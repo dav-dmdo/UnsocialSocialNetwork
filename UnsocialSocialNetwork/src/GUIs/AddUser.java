@@ -5,6 +5,8 @@
  */
 package GUIs;
 
+import EDD.List;
+import Grafo.Graph;
 import ImportantClasses.Helpers;
 import javax.swing.JOptionPane;
 
@@ -13,12 +15,20 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class AddUser extends javax.swing.JFrame {
+    static Graph graph;
+    static int userID;
+    static String userNickname;
+    static List relations;
 
     /**
      * Creates new form AddUser
      */
-    public AddUser() {
+    public AddUser(Graph graph) {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.graph = graph;
+        
     }
 
     /**
@@ -205,13 +215,22 @@ public class AddUser extends javax.swing.JFrame {
     private void checkIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkIDActionPerformed
         try{
         int number = Helpers.valorNumero(userIDInput.getText());
+            if (number!=-1) { 
+          number = Helpers.validID(graph, number); //Checks if the number is not on the existents users
         //CHECK IF IT EXISTS
-            if (number !=-1) {JOptionPane.showMessageDialog(this, "This is an available ID!");
+            if (number !=-1) {
+                  JOptionPane.showMessageDialog(this, "This is an available ID!");
+            userID=number; 
                 
-            }
+   
         
-        }catch(Exception e) {
-        JOptionPane.showMessageDialog(this, "This is not a valid ID");
+        }else{
+            JOptionPane.showMessageDialog(this, "Not an available ID");
+            userIDInput.setText("");
+            }
+            
+            }}catch(Exception e) {
+        JOptionPane.showMessageDialog(this, "This is not a valid ID" + e);
         userIDInput.setText("");}
        
     }//GEN-LAST:event_checkIDActionPerformed
@@ -235,7 +254,14 @@ public class AddUser extends javax.swing.JFrame {
             userNicknameInput1.setText("");
             
         }else{
-        JOptionPane.showMessageDialog(this, "This nickname is available!");}
+            username=Helpers.validNickname(graph, username);
+            if (username!=null) {
+                userNickname = username;
+                JOptionPane.showMessageDialog(this, "This nickname is available!");
+                
+            }else{
+            JOptionPane.showMessageDialog(this, "This is not an available username.");}
+        }
         
     }//GEN-LAST:event_checkUserActionPerformed
 
@@ -244,19 +270,35 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       //HERE you need to create the user, relation and add it to the graph!
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addRelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRelationActionPerformed
             try{
-        int number = Helpers.valorNumero(inputRelation.getText());
-        //CHECK IF IT EXISTS
-            if (number !=-1) {JOptionPane.showMessageDialog(this, "This is an available ID!");
+                String text= inputRelation.getText();
+                String[] numbers =text.split(",");
+                List list=null;
+                for (int i = 0; i < numbers.length; i++) {
+                    int number = Integer.parseInt(numbers[i]);
+                    number =Helpers.validID(graph, number);
+                    if (number != -1) {
+                        list.addFirst(Integer.parseInt(numbers[i]));
+                        
+                    }else{
+                     JOptionPane.showMessageDialog(this, "This is not an existing ID");
+                    break;}
+
                 
-            }
+                    
+                    
+                }
+        
+        
+        //CHECK IF IT EXISTS
+            
         
         }catch(Exception e) {
-        JOptionPane.showMessageDialog(this, "This is not a valid ID");
+        JOptionPane.showMessageDialog(this, "ERROR!" +e);
         inputRelation.setText("");}
        
                                            
@@ -293,7 +335,7 @@ public class AddUser extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddUser().setVisible(true);
+                new AddUser(graph).setVisible(true);
             }
         });
     }
