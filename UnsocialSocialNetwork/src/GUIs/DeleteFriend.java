@@ -69,10 +69,10 @@ public class DeleteFriend extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, 280));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Princ\\OneDrive\\Pictures\\200X200PRHOHIBITED.png")); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/200X200PRHOHIBITED.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUIs/AddRemoveFriend/200x200.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/200x200.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         removeInput.setBackground(java.awt.SystemColor.activeCaptionBorder);

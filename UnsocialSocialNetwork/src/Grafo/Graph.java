@@ -146,7 +146,7 @@ public class Graph {
     
     
     public String usersToString(){
-        String users = "Usuarios:\n";
+        String users = "Usuarios\n";
         GraphNode temp = this.pFirst;
         while (temp != null){
             users+= user(temp).toString();
@@ -156,7 +156,7 @@ public class Graph {
     }
     
     public String friendshipsToString(){
-        String friendships = "Relaciones:\n";
+        String friendships = "Relaciones\n";
         GraphNode temp = this.pFirst;
         while (temp != null){
             
