@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
-import GUIs.MainGUI;
 import GUIs.MainView;
 import Grafo.Graph;
 
