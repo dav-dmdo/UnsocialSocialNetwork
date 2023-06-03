@@ -88,7 +88,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Princ\OneDrive\Pictures\200X200PRHOHIBITED.png"/>
+              <Image iconType="3" name="/Pictures/200X200PRHOHIBITED.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -100,7 +100,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/GUIs/AddRemoveFriend/200x200.png"/>
+              <Image iconType="3" name="/Pictures/200x200.png"/>
             </Property>
           </Properties>
           <Constraints>

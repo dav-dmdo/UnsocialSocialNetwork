@@ -44,10 +44,10 @@ public class MainView extends javax.swing.JFrame {
         seeIsles = new javax.swing.JToggleButton();
         bridgeCheck = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        Exit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        Exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,6 +116,17 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setText("UNSOCIAL SOCIAL NETWORK");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
+        Exit.setBackground(new java.awt.Color(0, 0, 255));
+        Exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+
         jScrollPane1.setBackground(java.awt.SystemColor.activeCaptionBorder);
         jScrollPane1.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
 
@@ -129,19 +140,8 @@ public class MainView extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 270, 250));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Princ\\OneDrive\\Pictures\\MINI.png")); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-
-        Exit.setBackground(new java.awt.Color(0, 0, 255));
-        Exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
-        Exit.setText("X");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/WORLD.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 560, 410));
 
