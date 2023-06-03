@@ -15,17 +15,20 @@ public class Graph {
     
     private GraphNode pFirst;
     private GraphNode pLast;
-    private int size;
+    private int numNodes;
+    private int numEdges;
     
     public Graph(){
         this.pFirst = null;
         this.pLast = null;
-        this.size = 0;
+        this.numNodes = 0;
+        this.numEdges = 0;
     }
     
-    public boolean isEmpty(){
+    private boolean isEmpty(){
         return this.getpFirst() == null;
     }
+    
     
     
     public boolean existsNodeID(int userID){
@@ -40,6 +43,7 @@ public class Graph {
         return exists;
     }
     
+
     public boolean existsNodeID(String userNickname){
         boolean exists = false;
         if (!isEmpty()){
@@ -78,7 +82,8 @@ public class Graph {
                 }
             }
             pUser1.getList().newAdjacency(pUser2, friendship.getTime());
-            pUser2.getList().newAdjacency(pUser1, friendship.getTime());            
+            pUser2.getList().newAdjacency(pUser1, friendship.getTime());
+            numEdges++;            
         }       
     }
     
@@ -106,41 +111,73 @@ public class Graph {
                     
                 }
             }
-            this.setSize(this.getSize() + 1);
+            numNodes++;
         }
     }
-
     
-    
-    //Agregado
-    /**
-     * @return the size
-     */
-    public int getSize() {
-        return size;
+    public void deleteNode(int userID){
+        if (existsNodeID(userID)){
+            GraphNode gnUser = this.pFirst;
+            GraphNode gnPrevious = null;
+            while (id(gnUser) != userID ){
+                gnPrevious = gnUser;
+                gnUser = gnUser.getpNext();
+            }
+            
+            Edge aux = gnUser.getList().getpFirst();
+            while (aux != null){
+                deleteEdge(userID, id(aux));
+                aux = aux.getpNext();
+            }
+            
+            if (gnUser == this.pFirst){
+                this.pFirst = gnUser.getpNext();
+            }else{
+                gnPrevious.setpNext(gnUser.getpNext());
+            }
+            if(gnUser == this.pLast){
+                this.pLast = gnPrevious;
+            }
+            gnUser.setpNext(null);
+            
+            numNodes--;
+            
+                        
+        }
+        
     }
-
-    /**
-     * @param size the size to set
-     */
-    public void setSize(int size) {
-        this.size = size;
+    
+    public void deleteEdge(int userID1, int userID2){
+        if( existsNodeID(userID1) && existsNodeID(userID2)){
+            
+            GraphNode gnUser1 = this.pFirst;
+            GraphNode gnUser2 = this.pFirst;
+            
+            while ((id(gnUser1) != userID1 ) || (id(gnUser2) != userID2)){
+                gnUser1 = (id(gnUser1) == userID1) ? gnUser1 : gnUser1.getpNext();
+                gnUser2 = (id(gnUser2) == userID2) ? gnUser2 : gnUser2.getpNext();
+            }
+            gnUser1.getList().delete(userID2);
+            gnUser2.getList().delete(userID1);
+            numEdges--;
+        }
+        
     }
     
     
-    public User user(GraphNode gn){
+    private User user(GraphNode gn){
         return gn.getUser();
     }
     
-    public User user(Edge edge){
+    private User user(Edge edge){
         return edge.getDestination().getUser();
     }
     
-    public int id(GraphNode gn){
+    private int id(GraphNode gn){
         return gn.getUser().getUserID();
     }
     
-    public int id(Edge edge){
+    private int id(Edge edge){
         return edge.getDestination().getUser().getUserID();
     }
     
@@ -205,8 +242,22 @@ public class Graph {
         this.pLast = pLast;
     }
 
-   
-  
+    /**
+     * @return the numNodes
+     */
+    public int getNumNodes() {
+        return numNodes;
+    }
+
+    /**
+     * @param numNodes the numNodes to set
+     */
+    public void setNumNodes(int numNodes) {
+        this.numNodes = numNodes;
+    }
+    
+    /*
+    */
     /*
     public void newEdge(User origin, User destination){
         if ((existsNodeUser(origin)) && (existsNodeUser(destination))){
