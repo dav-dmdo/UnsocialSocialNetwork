@@ -127,8 +127,8 @@ public class Isles extends javax.swing.JFrame {
 
     private void IsleToStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IsleToStartActionPerformed
         try{
-        //BFSorDFS v5= new BFSorDFS();
-        //v5.show();
+        BFSorDFS v5= new BFSorDFS();
+        v5.show();
         }catch(Exception e){
        }
         
