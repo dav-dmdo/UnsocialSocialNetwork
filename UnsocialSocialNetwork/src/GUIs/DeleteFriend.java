@@ -17,16 +17,18 @@ import javax.swing.JOptionPane;
  */
 public class DeleteFriend extends javax.swing.JFrame {
     static GraphM graph;
+    static MainView mainInterface;
 
     /**
      * Creates new form DeleteFriend
      */
-    public DeleteFriend(GraphM graph) {
+    public DeleteFriend(GraphM graph, MainView mainInterface) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         showUsers.setText(graph.usersToString());
         this.graph = graph;
+        mainInterface.dispose();
     }
 
     /**
@@ -170,9 +172,11 @@ public class DeleteFriend extends javax.swing.JFrame {
                NodoEDD aux = list.getPfirst();
                 for (int i = 0; i < list.getSize(); i++) {
                     graph.deleteNode(aux.getData());
-                    showUsers.setText(graph.usersToString());
+                    
                  
-            }
+            }showUsers.setText(graph.usersToString());
+            
+            
         
         
         //CHECK IF IT EXISTS
@@ -185,6 +189,9 @@ public class DeleteFriend extends javax.swing.JFrame {
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         this.dispose();
+        MainView v1= new MainView(graph);
+        v1.show();
+        
     }//GEN-LAST:event_ExitActionPerformed
 
     /**
@@ -217,7 +224,8 @@ public class DeleteFriend extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeleteFriend(graph).setVisible(true);
+               
+                new DeleteFriend(graph, mainInterface).setVisible(true);
             }
         });
     }

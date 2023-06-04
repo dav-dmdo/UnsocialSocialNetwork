@@ -11,16 +11,14 @@ import ImportantClasses.User;
  *
  * @author david
  */
-
 public class GraphM {
- 
+
     private GraphNode pFirst;
     private GraphNode pLast;
     private int numNodes;
     private int numEdges;
 
-    
-    public GraphM(){
+    public GraphM() {
 
         this.pFirst = null;
         this.pLast = null;
@@ -134,28 +132,39 @@ public class GraphM {
             }
 
             Edge aux = gnUser.getList().getpFirst();
-            while (aux != null) {
-                deleteEdge(userID, id(aux));
-                aux = aux.getpNext();
+
+            for (int i = 0; i < gnUser.getList().getSize(); i++) {
+                while (aux != null) {
+                    deleteEdge(userID, id(aux));
+                    aux = gnUser.getList().getpFirst();
+
+                }
+                if (existsNodeID(userID)) {
+                    gnUser = this.pFirst;
+                    gnPrevious = null;
+                    while (id(gnUser) != userID) {
+                        gnPrevious = gnUser;
+                        gnUser = gnUser.getpNext();
+                    }
+
+                }
+                if (gnUser == this.pFirst) {
+
+                    this.pFirst = gnUser.getpNext();
+                } else {
+                    gnPrevious.setpNext(gnUser.getpNext());
+                }
+                if (gnUser == this.pLast) {
+                    this.pLast = gnPrevious;
+                }
+                gnUser.setpNext(null);
+
+                numNodes--;
+
+                this.indexing();
+
             }
-
-            if (gnUser == this.pFirst) {
-                this.pFirst = gnUser.getpNext();
-            } else {
-                gnPrevious.setpNext(gnUser.getpNext());
-            }
-            if (gnUser == this.pLast) {
-                this.pLast = gnPrevious;
-            }
-            gnUser.setpNext(null);
-
-            numNodes--;
-
-            this.indexing();
-
-
         }
-
     }
 
     public void deleteEdge(int userID1, int userID2) {
