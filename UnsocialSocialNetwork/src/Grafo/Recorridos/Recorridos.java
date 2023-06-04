@@ -5,14 +5,10 @@
  */
 package Grafo.Recorridos;
 
-//import EDD.List;
+import EDD.List;
 import EDD.Queue;
-
-
 import Grafo.EdgeList;
 import Grafo.Graph;
-
-
 /**
  *
  * @author Andrea
@@ -22,21 +18,21 @@ import Grafo.Graph;
  *
  * @author Andrea
  */
-//public class Recorridos {
+public class Recorridos {
     
 
-    /**
-     * This reads your graph using Depth First Search.
-     *
-     * @author Andrea
-     * @param grafo
-     * @param v
-     * @param visited
-     * @param edges
-     * @return String
-     */
-    
-    //NEEDS A METHOD THAT FINDS THE VERTEX, SO U CAN SEND THAT.
+//    /**
+//     * This reads your graph using Depth First Search.
+//     *
+//     * @author Andrea
+//     * @param grafo
+//     * @param v
+//     * @param visited
+//     * @param edges
+//     * @return String
+//     */
+//    
+//    //NEEDS A METHOD THAT FINDS THE VERTEX, SO U CAN SEND THAT.
 //    public Results DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
 //       String visitedDFS = " ";
 //       Results response = new Results();
@@ -72,8 +68,8 @@ import Grafo.Graph;
 //            }
 //            
 //}
-       
-       
+//       
+//       
 //
 //        visited[v] = true;
 //        counter++;
@@ -86,17 +82,17 @@ import Grafo.Graph;
 //
 //        }
 //visitedDFS += "\nThe amount of isles if of " + Integer.toString(counter);
-
-      //  return response;
-    //}
-
-    /**
-     * This makes a Breadth First Search of your graph.
-     *
-     * @param g
-     * @param edges
-     * @return
-     */
+//
+//        return response;
+//    }
+//
+//    /**
+//     * This makes a Breadth First Search of your graph.
+//     *
+//     * @param g
+//     * @param edges
+//     * @return
+//     */
 //    public Results BFS(Graph g, EdgeList edges) {
 //        String visitedBFS = "";
 //        Results response = new Results();
@@ -156,4 +152,10 @@ import Grafo.Graph;
 //    }
 //        return Bridge;
 //    }
-//}
+    
+    
+    
+    
+    
+    
+}
