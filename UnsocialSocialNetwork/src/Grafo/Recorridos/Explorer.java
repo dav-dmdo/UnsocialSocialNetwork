@@ -4,13 +4,13 @@
  */
 package Grafo.Recorridos;
 
-<<<<<<< HEAD
+
 import EDD.Stack;
 import Grafo.Edge;
-import Grafo.Graph;
-=======
 import Grafo.GraphM;
->>>>>>> andrea
+
+import Grafo.GraphM;
+
 import Grafo.GraphNode;
 
 /**
@@ -19,12 +19,10 @@ import Grafo.GraphNode;
  */
 public class Explorer {
     
-<<<<<<< HEAD
-    public int DFS(Graph graph, GraphNode root, boolean[] discovered){
-=======
-    public void DFS(GraphM graph, GraphNode root){
-        boolean discovered [][] = new boolean[2][graph.getNumNodes()];
->>>>>>> andrea
+
+    public int DFS(GraphM graph, GraphNode root, boolean[] discovered){
+
+   
         
         int cantIslands = 0;        
         //if (!graph.isEmpty()){
@@ -50,7 +48,7 @@ public class Explorer {
         return cantIslands;
     }
         
-    public int countIslands(Graph graph, GraphNode root, boolean[] discovered ){
+    public int countIslands(GraphM graph, GraphNode root, boolean[] discovered ){
         int cantIslands = 0;
         
         
