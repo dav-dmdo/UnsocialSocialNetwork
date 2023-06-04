@@ -11,14 +11,14 @@ import ImportantClasses.User;
  *
  * @author david
  */
-public class Graph {
+public class GraphM {
     
     private GraphNode pFirst;
     private GraphNode pLast;
     private int numNodes;
     private int numEdges;
     
-    public Graph(){
+    public GraphM(){
         this.pFirst = null;
         this.pLast = null;
         this.numNodes = 0;
@@ -149,7 +149,7 @@ public class Graph {
             gnUser.setpNext(null);
             
             numNodes--;
-            this.indexing();
+            //this.indexing();
             
                         
         }

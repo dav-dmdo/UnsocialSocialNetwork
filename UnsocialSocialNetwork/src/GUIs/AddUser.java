@@ -7,7 +7,7 @@ package GUIs;
 
 import EDD.List;
 import EDD.NodoEDD;
-import Grafo.Graph;
+import Grafo.GraphM;
 import ImportantClasses.Friendship;
 import ImportantClasses.Helpers;
 import ImportantClasses.User;
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class AddUser extends javax.swing.JFrame {
-    static Graph graph;
+    static GraphM graph;
     static int userID;
     static String userNickname;
     static List relations;
@@ -28,7 +28,7 @@ public class AddUser extends javax.swing.JFrame {
     /**
      * Creates new form AddUser
      */
-    public AddUser(Graph graph) {
+    public AddUser(GraphM graph) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);

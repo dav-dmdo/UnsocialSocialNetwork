@@ -5,17 +5,21 @@
  */
 package GUIs;
 
+import Grafo.GraphM;
+
 /**
  *
- * @author Princ
+ * @author Andrea
  */
 public class Bridges extends javax.swing.JFrame {
-
+static GraphM graph;
     /**
      * Creates new form Bridges
      */
-    public Bridges() {
+    public Bridges(GraphM graph) {
         initComponents();
+        this.graph = graph;
+        
     }
 
     /**
@@ -47,9 +51,12 @@ public class Bridges extends javax.swing.JFrame {
         jLabel1.setText("BIRDGE CHECKER");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setBackground(java.awt.SystemColor.activeCaptionBorder);
         jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(0, 0, 255));
         jTextArea1.setRows(5);
+        jTextArea1.setText("// set text to bridge checker answer");
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 270, 250));
@@ -63,7 +70,7 @@ public class Bridges extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, -10, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/qorl.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -115,7 +122,7 @@ public class Bridges extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bridges().setVisible(true);
+                new Bridges(graph).setVisible(true);
             }
         });
     }

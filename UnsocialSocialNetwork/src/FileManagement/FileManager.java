@@ -4,7 +4,7 @@
  */
 package FileManagement;
 
-import Grafo.Graph;
+import Grafo.GraphM;
 import ImportantClasses.Friendship;
 import ImportantClasses.User;
 import java.io.BufferedReader;
@@ -31,7 +31,7 @@ public class FileManager {
      *
      * @param graph
      */
-    public void writeDBtxt(Graph graph) {
+    public void writeDBtxt(GraphM graph) {
 
         String programData = graph.toString();
 
@@ -43,9 +43,9 @@ public class FileManager {
 
     }
 
-    public Graph readDBtxt() { 
+    public GraphM readDBtxt() { 
         
-        Graph graph = new Graph();
+        GraphM graph = new GraphM();
         try {
             loadUsers(graph, this.path);
             loadFriendships(graph, this.path);
@@ -85,7 +85,7 @@ public class FileManager {
 
     }
 
-    public void loadUsers(Graph graph, String path) {
+    public void loadUsers(GraphM graph, String path) {
 
         boolean flag = false;
 
@@ -116,7 +116,7 @@ public class FileManager {
 
     }
 
-    public void loadFriendships(Graph graph, String path) {
+    public void loadFriendships(GraphM graph, String path) {
 
         boolean flag = false;
 

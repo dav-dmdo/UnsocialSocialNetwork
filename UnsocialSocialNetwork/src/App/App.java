@@ -6,7 +6,7 @@ package App;
 
 import FileManagement.FileManager;
 import GUIs.MainView;
-import Grafo.Graph;
+import Grafo.GraphM;
 
 /**
  *
@@ -14,12 +14,12 @@ import Grafo.Graph;
  */
 public class App {
     MainView mainGUI;
-    Graph graph;
+    GraphM graph;
     FileManager file = new FileManager();
     
     public App(){
         this.mainGUI = null;
-        this.graph = new Graph();
+        this.graph = new GraphM();
                 
     }
     

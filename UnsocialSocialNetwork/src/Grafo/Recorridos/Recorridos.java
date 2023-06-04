@@ -8,7 +8,7 @@ package Grafo.Recorridos;
 import EDD.List;
 import EDD.Queue;
 import Grafo.EdgeList;
-import Grafo.Graph;
+import Grafo.GraphM;
 /**
  *
  * @author Andrea
@@ -33,7 +33,7 @@ public class Recorridos {
 //     */
 //    
 //    //NEEDS A METHOD THAT FINDS THE VERTEX, SO U CAN SEND THAT.
-//    public Results DFS(Graph grafo, int v, boolean[] visited, EdgeList edges) {
+//    public Results DFS(GraphM grafo, int v, boolean[] visited, EdgeList edges) {
 //       String visitedDFS = " ";
 //       Results response = new Results();
 //       
@@ -93,7 +93,7 @@ public class Recorridos {
 //     * @param edges
 //     * @return
 //     */
-//    public Results BFS(Graph g, EdgeList edges) {
+//    public Results BFS(GraphM g, EdgeList edges) {
 //        String visitedBFS = "";
 //        Results response = new Results();
 //        int counter = 0;
@@ -131,7 +131,7 @@ public class Recorridos {
 //        return response;
 //    }
 //    
-//    public String BridgeChecker(Graph g, EdgeList edges){
+//    public String BridgeChecker(GraphM g, EdgeList edges){
 //        String Bridge = "";
 //        boolean[] visited = null;
 //        

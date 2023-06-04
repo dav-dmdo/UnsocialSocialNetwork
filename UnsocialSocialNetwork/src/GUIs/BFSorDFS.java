@@ -6,21 +6,21 @@
 package GUIs;
 
 import FileManagement.FileManager;
-import Grafo.Graph;
+import Grafo.GraphM;
 
 /**
  *
- * @author Princ
+ * @author Andrea
  */
 public class BFSorDFS extends javax.swing.JFrame {
-    static Graph graph;
+    static GraphM graph;
     static FileManager file;
     static int userID;
 
     /**
      * Creates new form BFSorDFS
      */
-    public BFSorDFS(Graph graph, int ID) {
+    public BFSorDFS(GraphM graph, int ID) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);

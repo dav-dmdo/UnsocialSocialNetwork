@@ -4,7 +4,7 @@
  */
 package App;
 import FileManagement.FileManager;
-import Grafo.Graph;
+import Grafo.GraphM;
 import ImportantClasses.Friendship;
 import ImportantClasses.User;
 
@@ -25,7 +25,7 @@ public class Main {
         App app = new App();
         app.start();
 //
-//        Graph grafo = new Graph();
+//        GraphM grafo = new GraphM();
 //        User david = new User(1, "@dmdo");
 //        User moises = new User(2, "@dmdo");
 //        User davila = new User(3, "@dmdo");

@@ -4,7 +4,7 @@
  */
 package Grafo.Recorridos;
 
-import Grafo.Graph;
+import Grafo.GraphM;
 import Grafo.GraphNode;
 
 /**
@@ -13,7 +13,7 @@ import Grafo.GraphNode;
  */
 public class Explorer {
     
-    public void DFS(Graph graph, GraphNode root){
+    public void DFS(GraphM graph, GraphNode root){
         boolean discovered [][] = new boolean[2][graph.getNumNodes()];
         
     }

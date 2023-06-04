@@ -6,16 +6,16 @@
 package GUIs;
 
 import FileManagement.FileManager;
-import Grafo.Graph;
+import Grafo.GraphM;
 import javax.swing.JOptionPane;
 
 
 /**
  *
- * @author Princ
+ * @author Andrea
  */
 public class LoadFile extends javax.swing.JFrame {
-    static Graph graph;
+    static GraphM graph;
     static FileManager file;
     
 
@@ -23,7 +23,7 @@ public class LoadFile extends javax.swing.JFrame {
      * Creates new form LoadFile
      * @param graph
      */
-    public LoadFile(Graph graph) {
+    public LoadFile(GraphM graph) {
         initComponents();
         this.graph= graph;
         this.file = new FileManager();

@@ -5,7 +5,7 @@
  */
 package ImportantClasses;
 
-import Grafo.Graph;
+import Grafo.GraphM;
 import javax.swing.JOptionPane;
 
 /**
@@ -65,8 +65,13 @@ public class Helpers {
             return "no";
         }
     }
-
-    public static int validID(Graph g, int number) {
+/**
+ * Checks if the ID is already is used and returns true if its found
+ * @param g
+ * @param number
+ * @return 
+ */
+    public static int validID(GraphM g, int number) {
         boolean answer;
         try {
             answer = g.existsNodeID(number);
@@ -83,7 +88,13 @@ public class Helpers {
         }
     return -1;}
         
-    public static int validID2(Graph g, int number) {
+    /**
+     * Checks if an id is valid
+     * @param g
+     * @param number
+     * @return 
+     */
+    public static int validID2(GraphM g, int number) {
         boolean answer;
         try {
             answer = g.existsNodeID(number);
@@ -100,9 +111,14 @@ public class Helpers {
         }
     return -1;}
         
+    /**
+     * Checks if a nickname is valid
+     * @param graph
+     * @param nickname
+     * @return 
+     */
     
-    
-    public static String validNickname(Graph graph, String nickname) {
+    public static String validNickname(GraphM graph, String nickname) {
         boolean answer;
         try {
             answer = graph.existsNodeID(nickname);

@@ -6,16 +6,16 @@
 package GUIs;
 
 import FileManagement.FileManager;
-import Grafo.Graph;
+import Grafo.GraphM;
 import ImportantClasses.Helpers;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Princ
+ * @author Andrea
  */
 public class Isles extends javax.swing.JFrame {
-    static Graph graph;
+    static GraphM graph;
     static FileManager file;
     static int userID;
    
@@ -23,7 +23,7 @@ public class Isles extends javax.swing.JFrame {
     /**
      * Creates new form Isles
      */
-    public Isles(Graph graph) {
+    public Isles(GraphM graph) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -135,7 +135,7 @@ public class Isles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_ExitActionPerformed
 
     private void IsleToStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IsleToStartActionPerformed

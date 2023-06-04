@@ -6,28 +6,71 @@
 package GUIs;
 
 import FileManagement.FileManager;
-import Grafo.Graph;
+import Grafo.Edge;
+import Grafo.GraphM;
+import Grafo.GraphNode;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import org.graphstream.graph.Graph;
+
+import org.graphstream.graph.implementations.MultiGraph;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
+
+import org.graphstream.ui.swing_viewer.SwingViewer;
+import org.graphstream.ui.swing_viewer.ViewPanel;
+
+
 
 /**
  *
  * @author Andrea
  */
 public class MainView extends javax.swing.JFrame {
-    static Graph graph;
+    static GraphM graph;
     static FileManager file;
     
 
-    /**
+    /**author:Andrea
      * Creates new form NewJFrame
+     * @param graph
      */
-    public MainView(Graph graph) {
+    public MainView(GraphM graph) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.graph= graph;
         this.file= new FileManager();
         
+    }
+    /**
+     * This method displays the graph.
+     * @param graph2 
+     */
+     private void displayGraph(Graph graph2) {
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+      JPanel panel = new JPanel(new GridLayout()){
+        @Override
+        public Dimension getPreferredSize() {
+            return new Dimension(800, 480);
+            }
+        };
+        frame.setSize(panel.getWidth(), panel.getHeight());
+     
+        Viewer viewer = new SwingViewer(graph2, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
+        viewer.enableAutoLayout();
+        ViewPanel viewPanel = (ViewPanel) viewer.addDefaultView(false);
+        panel.add(viewPanel);
+        frame.add(panel);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);      
     }
 
     /**
@@ -95,6 +138,11 @@ public class MainView extends javax.swing.JFrame {
         showGraph.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         showGraph.setForeground(new java.awt.Color(255, 255, 255));
         showGraph.setText("Show Graph");
+        showGraph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showGraphActionPerformed(evt);
+            }
+        });
         jPanel1.add(showGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
 
         seeIsles.setBackground(new java.awt.Color(0, 0, 255));
@@ -155,38 +203,92 @@ public class MainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * This shows Isles Interface
+ * @param evt 
+ */
     private void seeIslesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeIslesActionPerformed
         Isles isles = new Isles(graph);
         isles.show();
     }//GEN-LAST:event_seeIslesActionPerformed
-
+/**
+ * This shows add user interface.
+ * @param evt 
+ */
     private void AddUSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUSerActionPerformed
        AddUser v2= new AddUser(graph);
        v2.show();
        
     }//GEN-LAST:event_AddUSerActionPerformed
-
+/**
+ * This shows bridge interface
+ * @param evt 
+ */
     private void bridgeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bridgeCheckActionPerformed
-        // TODO add your handling code here:
+        Bridges v7 = new Bridges(graph);
+        v7.show();
     }//GEN-LAST:event_bridgeCheckActionPerformed
-
+/**
+ * This exits interface saving the latest changes.
+ * @param evt 
+ */
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         file.writeDBtxt(graph);
         JOptionPane.showMessageDialog(this, "NOTICE! All your last changes have been saved.");
         
         this.dispose();
     }//GEN-LAST:event_ExitActionPerformed
-
+/**
+ * This shows eliminate friend interface
+ * @param evt 
+ */
     private void RemoveNodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveNodeActionPerformed
        DeleteFriend v3= new DeleteFriend(graph);
        v3.show();
     }//GEN-LAST:event_RemoveNodeActionPerformed
-
+/**
+ * This shows load file interface
+ * @param evt 
+ */
     private void loadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFileActionPerformed
         LoadFile v6 = new LoadFile(graph);
         v6.show();
     }//GEN-LAST:event_loadFileActionPerformed
+/**
+ * This shows graphic graph
+ * @param evt 
+ */
+    private void showGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGraphActionPerformed
+          Graph graphLibrary = new MultiGraph("Unsocial Social Network");
+          System.setProperty("org.graphstream.ui", "swing");
+          GraphNode auxNodo = graph.getpFirst();
+          String users = graph.usersToString();
+          String friendships = graph.friendshipsToString();
+          String[] user = users.split("\n");
+          for (int i = 1; i < user.length; i++) {
+              if (user[i].contains(" ")) {
+                  user[i].replace(" ", "");
+              }
+              
+              String[] array= user[i].split(",");
+              graphLibrary.addNode(array[0]).setAttribute("ui.label", array[0]);
+              
+              
+        }
+          String[] friends= friendships.split("\n");
+          for (int i = 1; i < friends.length; i++) {
+              if (friends[i].contains(" ")) {
+                  friends[i].replace(" ", "");
+              }
+              String[] array = friends[i].split(",");
+              graphLibrary.addEdge(array[0]+","+array[1],array[0],array[1]).setAttribute("ui.label", array[2]);
+            
+        }
+         
+            
+          this.displayGraph(graphLibrary);
+          
+    }//GEN-LAST:event_showGraphActionPerformed
 
     /**
      * @param args the command line arguments
