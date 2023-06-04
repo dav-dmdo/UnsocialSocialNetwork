@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -76,9 +77,9 @@ public class FileManager {
                 }
                 reader.close();
                 writer.close();
-                System.out.println("El archivo " + selectedFile.getName() + " fue copiado en " + dbFile.getName() + " con exito!");
+                JOptionPane.showMessageDialog(null,"El archivo " + selectedFile.getName() + " fue copiado en " + dbFile.getName() + " con exito!");
             } catch (IOException e) {
-                System.out.println("Error al copiar el archivo: " + e.getMessage());
+                JOptionPane.showMessageDialog(null,"Error al copiar el archivo: " + e.getMessage());
             }
 
         }
@@ -143,7 +144,7 @@ public class FileManager {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Error al leer las relaciones del archivo: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al leer las relaciones del archivo: " + e.getMessage());
         }
 
     }
