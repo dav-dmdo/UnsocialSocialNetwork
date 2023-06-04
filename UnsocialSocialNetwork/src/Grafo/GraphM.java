@@ -133,12 +133,26 @@ public class GraphM {
             }
             
             Edge aux = gnUser.getList().getpFirst();
-            while (aux != null){
-                deleteEdge(userID, id(aux));
-                aux = aux.getpNext();
-            }
+            for (int i = 0; i < gnUser.getList().getSize(); i++) {
+               while(aux!= null){
+                   deleteEdge(userID, id(aux));
+                   aux= gnUser.getList().getpFirst();
+               
+                 
+                //aux = aux.getpNext();
             
-            if (gnUser == this.pFirst){
+            
+            }
+               if (existsNodeID(userID)){
+            gnUser = this.pFirst;
+            gnPrevious = null;
+            while (id(gnUser) != userID ){
+                gnPrevious = gnUser;
+                gnUser = gnUser.getpNext();
+            }
+               
+            
+            }if (gnUser == this.pFirst){
                 this.pFirst = gnUser.getpNext();
             }else{
                 gnPrevious.setpNext(gnUser.getpNext());
@@ -154,7 +168,7 @@ public class GraphM {
                         
         }
         
-    }
+    }}
     
     public void deleteEdge(int userID1, int userID2){
         if( existsNodeID(userID1) && existsNodeID(userID2)){

@@ -6,7 +6,6 @@
 package GUIs;
 
 import FileManagement.FileManager;
-import Grafo.Edge;
 import Grafo.GraphM;
 import Grafo.GraphNode;
 import java.awt.Dimension;
@@ -18,7 +17,7 @@ import javax.swing.JPanel;
 import org.graphstream.graph.Graph;
 
 import org.graphstream.graph.implementations.MultiGraph;
-import org.graphstream.graph.implementations.SingleGraph;
+
 import org.graphstream.ui.view.Viewer;
 
 import org.graphstream.ui.swing_viewer.SwingViewer;
@@ -41,6 +40,7 @@ public class MainView extends javax.swing.JFrame {
      */
     public MainView(GraphM graph) {
         initComponents();
+        this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.graph= graph;
@@ -265,23 +265,21 @@ public class MainView extends javax.swing.JFrame {
           String users = graph.usersToString();
           String friendships = graph.friendshipsToString();
           String[] user = users.split("\n");
+          
+          //Recorre los vertices y los agrega al grafo
           for (int i = 1; i < user.length; i++) {
-//              if (user[i].contains(" ")) {
-//                  user[i].replace(" ", "");
-//              }
-              
+
               String[] array= user[i].split(",");
               graphLibrary.addNode(array[0]).setAttribute("ui.label", array[0]);
               
               
         }
+          //Recorre los puentes y los agrega al grafo
           String[] friends= friendships.split("\n");
           for (int i = 1; i < friends.length; i++) {
-//              if (friends[i].contains(" ")) {
-//                  friends[i].replace(" ", "");
-//              }
-              String[] array = friends[i].split(",");
-              graphLibrary.addEdge(array[0]+","+array[1],array[0],array[1]).setAttribute("ui.label", array[2]);
+              String[] arrays = friends[i].split(",");
+              
+              graphLibrary.addEdge(arrays[0]+","+arrays[1],arrays[0],arrays[1]).setAttribute("ui.label", arrays[2]);
             
         }
          
