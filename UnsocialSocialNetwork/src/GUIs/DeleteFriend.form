@@ -49,7 +49,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="REMOVE USERS"/>
+            <Property name="text" type="java.lang.String" value="REMOVE FRIEND"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -69,7 +69,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="showUsers">
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -80,7 +80,7 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="&#xa;"/>
+                <Property name="text" type="java.lang.String" value="/set text existent users&#xa;"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -225,7 +225,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="530" y="10" width="-1" height="-1"/>
+              <AbsoluteConstraints x="540" y="10" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

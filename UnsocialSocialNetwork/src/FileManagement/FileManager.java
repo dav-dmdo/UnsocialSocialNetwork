@@ -85,7 +85,7 @@ public class FileManager {
 
     }
 
-    public void loadUsers(Graph graph, String path) {
+    private void loadUsers(Graph graph, String path) {
 
         boolean flag = false;
 
@@ -116,7 +116,7 @@ public class FileManager {
 
     }
 
-    public void loadFriendships(Graph graph, String path) {
+    private void loadFriendships(Graph graph, String path) {
 
         boolean flag = false;
 

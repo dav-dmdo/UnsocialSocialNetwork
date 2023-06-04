@@ -5,30 +5,17 @@
  */
 package GUIs;
 
-import FileManagement.FileManager;
-import Grafo.Graph;
-import ImportantClasses.Helpers;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Princ
  */
 public class Isles extends javax.swing.JFrame {
-    static Graph graph;
-    static FileManager file;
-    static int userID;
-   
 
     /**
      * Creates new form Isles
      */
-    public Isles(Graph graph) {
+    public Isles() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.graph= graph;
-        this.file= new FileManager();
     }
 
     /**
@@ -140,19 +127,8 @@ public class Isles extends javax.swing.JFrame {
 
     private void IsleToStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IsleToStartActionPerformed
         try{
-        String user = InputIsle.getText();
-        Helpers helps = new Helpers();
-        int users = Helpers.valorNumero(user);
-        users = Helpers.validID2(graph, users);
-            if (users !=-1) {
-                userID = users;
-                BFSorDFS v5= new BFSorDFS(graph, userID);
+        BFSorDFS v5= new BFSorDFS();
         v5.show();
-        this.dispose();
-                
-            }else{
-            JOptionPane.showMessageDialog(this, "This isnt a valid isle.");}
-        
         }catch(Exception e){
        }
         
@@ -192,7 +168,7 @@ public class Isles extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Isles(graph).setVisible(true);
+                new Isles().setVisible(true);
             }
         });
     }

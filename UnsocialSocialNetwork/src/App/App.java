@@ -4,7 +4,7 @@
  */
 package App;
 
-import FileManagement.FileManager;
+//import GUIs.MainGUI;
 import GUIs.MainView;
 import Grafo.Graph;
 
@@ -15,7 +15,6 @@ import Grafo.Graph;
 public class App {
     MainView mainGUI;
     Graph graph;
-    FileManager file = new FileManager();
     
     public App(){
         this.mainGUI = null;
@@ -24,9 +23,7 @@ public class App {
     }
     
     public void start(){
-        this.graph =file.readDBtxt();
         this.mainGUI = new MainView(graph);
-        //System.out.println(graph.toString());
         this.mainGUI.show();
     }
 }
