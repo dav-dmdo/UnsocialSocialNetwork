@@ -28,10 +28,10 @@ public class Main {
         
 
 
-        //App app = new App();
-        //app.start();
+        App app = new App();
+        app.start();
 
-        GraphM grafo = new GraphM();
+        //GraphM grafo = new GraphM();
 //        User david = new User(1, "@dmdo");
 //        User moises = new User(2, "@dmdo");
 //        User davila = new User(3, "@dmdo");
@@ -55,28 +55,28 @@ public class Main {
 //        grafo.newEdge(friendship4);
 //        grafo.newEdge(friendship5);
 //        grafo.newEdge(friendship6);
-        
-        FileManager fileManager = new FileManager();
-        
-        //fileManager.writeDBtxt(grafo);
-        
-        
-        //fileManager.fromJFCtoDB();
-        
-        grafo = fileManager.readDBtxt();
-        
-        System.out.println(grafo.toString());
-        
-        
-        fileManager.writeDBtxt(grafo);
-        
-        
-        Explorer explorer = new Explorer();
-        //boolean [] visited = new boolean[grafo.getNumNodes()];
-        //explorer.DFS_programiz(grafo, grafo.getpFirst(), visited);
-        //System.out.println("La cantidad de islas es:"+ cant);
-        
-        explorer.completeDFS(grafo);
+//        
+//        FileManager fileManager = new FileManager();
+//        
+//        //fileManager.writeDBtxt(grafo);
+//        
+//        
+//        //fileManager.fromJFCtoDB();
+//        
+//        grafo = fileManager.readDBtxt();
+//        
+//        System.out.println(grafo.toString());
+//        
+//        
+//        fileManager.writeDBtxt(grafo);
+//        
+//        
+//        Explorer explorer = new Explorer();
+//        //boolean [] visited = new boolean[grafo.getNumNodes()];
+//        //explorer.DFS_programiz(grafo, grafo.getpFirst(), visited);
+//        //System.out.println("La cantidad de islas es:"+ cant);
+//        
+//        explorer.completeDFS(grafo);
 
 
 
