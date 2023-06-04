@@ -1,13 +1,8 @@
 Usuarios
-120, @andrea
-222, @Stephania
-360, @AndreaStani
-41, @Josefina_a
-51, @RosaMo
+222,@Stephania
+360,@AndreaStani
+41,@Josefina_a
+51,@RosaMo
 Relaciones
-120,222,1
-360,120,3
-41,120,9
 51,360,1
-51,41,4
-
+41,51,4

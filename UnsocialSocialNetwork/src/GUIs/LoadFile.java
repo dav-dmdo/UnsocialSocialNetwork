@@ -135,6 +135,7 @@ public class LoadFile extends javax.swing.JFrame {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         file.writeDBtxt(graph);
+        graph = file.readDBtxt();
         JOptionPane.showMessageDialog(this, "NOTICE! All your last changes have been saved.");
     }//GEN-LAST:event_saveActionPerformed
 
