@@ -63,18 +63,19 @@ public class List {
         return node;
     }
 
-    public int getProduct(int number){
-        int start = 0;
-        NodoEDD current = getPfirst();
-        while(start < getSize()  && current.getpNext() != null){ 
-          if(number == current.getData()){
-              return current.getData();
-          }
-          current = current.getpNext();
+    public String showListBasic(){
+        String list ="";
+    if(!isEmpty()){
+    NodoEDD aux= pfirst;
+        for (int i = 0; i < size; i++) {
+            list+=aux.getData()+" ";
+            aux = aux.getpNext();
+            
         }
-        return 0;
-    }
+}
+    return list;
     
+    }
     public String showList(){
         String list ="";
     if(!isEmpty()){
