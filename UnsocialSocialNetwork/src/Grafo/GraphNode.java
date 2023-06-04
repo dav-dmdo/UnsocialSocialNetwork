@@ -13,18 +13,19 @@ import ImportantClasses.User;
 public class GraphNode {
     
 
-    private Object data; //user id
-
     private User user;
-
     private EdgeList list;
     private GraphNode pNext;
+    private int index;
     
     public GraphNode(User user){
         this.user = user;
         this.list = new EdgeList();
-        this.pNext = null;        
+        this.pNext = null;
+        this.index = -1;
+        
     }
+    
 
     /**
      * @return the data
@@ -36,7 +37,7 @@ public class GraphNode {
     /**
      * @param user the data to set
      */
-    public void setSet(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -66,6 +67,14 @@ public class GraphNode {
      */
     public void setpNext(GraphNode pNext) {
         this.pNext = pNext;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
     
     

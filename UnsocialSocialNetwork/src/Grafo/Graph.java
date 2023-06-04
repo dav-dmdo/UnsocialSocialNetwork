@@ -29,6 +29,14 @@ public class Graph {
         return this.getpFirst() == null;
     }
     
+    private void indexing(){
+        int counter = 0;
+        GraphNode gn = this.pFirst;        
+        while (gn != null){
+            gn.setIndex(counter);
+            counter++;
+        }
+    }
     
     
     public boolean existsNodeID(int userID){
@@ -73,7 +81,7 @@ public class Graph {
             GraphNode pUser1 = this.getpFirst();
             GraphNode pUser2 = this.getpFirst();
             
-            while ((pUser1.getUser().getUserID() != friendship.getUser1ID()) || (pUser2.getUser().getUserID() != friendship.getUser2ID()) ){
+            while ((pUser1.getUser().getUserID() != friendship.getUser1ID()) || (pUser2.getUser().getUserID() != friendship.getUser2ID()) ){                
                 if (pUser1.getUser().getUserID() != friendship.getUser1ID()){
                     pUser1 = pUser1.getpNext();
                 }
@@ -107,11 +115,11 @@ public class Graph {
                         current = current.getpNext();
                     }
                     newNode.setpNext(current);
-                    previous.setpNext(newNode);
-                    
+                    previous.setpNext(newNode);                    
                 }
             }
             numNodes++;
+            this.indexing();
         }
     }
     
@@ -141,6 +149,7 @@ public class Graph {
             gnUser.setpNext(null);
             
             numNodes--;
+            this.indexing();
             
                         
         }
