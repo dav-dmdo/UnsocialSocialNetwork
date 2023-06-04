@@ -34,6 +34,7 @@ public class AddUser extends javax.swing.JFrame {
         this.setResizable(false);
         this.graph = graph;
         showUsers.setText(graph.usersToString());
+        
 
         
     }
@@ -72,6 +73,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         addYears = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,7 +93,7 @@ public class AddUser extends javax.swing.JFrame {
         showUsers.setRows(5);
         jScrollPane1.setViewportView(showUsers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 250));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 250));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -123,7 +125,7 @@ public class AddUser extends javax.swing.JFrame {
                 friendshipInputActionPerformed(evt);
             }
         });
-        jPanel1.add(friendshipInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 150, -1));
+        jPanel1.add(friendshipInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 150, -1));
 
         addRelation.setBackground(new java.awt.Color(0, 0, 255));
         addRelation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -134,12 +136,12 @@ public class AddUser extends javax.swing.JFrame {
                 addRelationActionPerformed(evt);
             }
         });
-        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
+        jPanel1.add(addRelation, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Create user!");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 70, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 70, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -149,7 +151,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("NOTE: You need to type the user's ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, 20));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -158,7 +160,7 @@ public class AddUser extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("ID whom you want to relate to.");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, 20));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, 20));
 
         exit.setBackground(new java.awt.Color(0, 0, 204));
         exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -207,12 +209,12 @@ public class AddUser extends javax.swing.JFrame {
                 FinalizeActionPerformed(evt);
             }
         });
-        jPanel1.add(Finalize, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        jPanel1.add(Finalize, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("by commas in the same order as users created.");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 380, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 380, -1));
 
         inputRelationYear.setBackground(java.awt.SystemColor.activeCaptionBorder);
         inputRelationYear.addActionListener(new java.awt.event.ActionListener() {
@@ -220,17 +222,17 @@ public class AddUser extends javax.swing.JFrame {
                 inputRelationYearActionPerformed(evt);
             }
         });
-        jPanel1.add(inputRelationYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 150, -1));
+        jPanel1.add(inputRelationYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 150, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Please enter one or more relations separating them by \",\"");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 340, -1));
+        jLabel11.setText("Without creating the user, the relationships wont show");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 340, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Please enter their friendship years separating them");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 380, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 380, -1));
 
         addYears.setBackground(new java.awt.Color(0, 0, 255));
         addYears.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -241,9 +243,14 @@ public class AddUser extends javax.swing.JFrame {
                 addYearsActionPerformed(evt);
             }
         });
-        jPanel1.add(addYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
+        jPanel1.add(addYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 420));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Please enter one or more relations separating them by \",\"");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 340, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 770, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -326,6 +333,7 @@ public class AddUser extends javax.swing.JFrame {
         
         
         try{
+             
                 String text= friendshipInput.getText();
                 String[] numbers =text.split(",");
                 List list= new List();
@@ -397,6 +405,7 @@ public class AddUser extends javax.swing.JFrame {
                             NodoEDD aux2 = relations.getPfirst();
                             for (int i = 0; i < yearsFriendship.getSize(); i++) {
                            Friendship relation = new Friendship(userID,aux2.getData(),aux.getData());
+                           
                            graph.newEdge(relation);
                                 aux = aux.getpNext();
                                 aux2= aux2.getpNext();
@@ -472,6 +481,7 @@ public class AddUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
