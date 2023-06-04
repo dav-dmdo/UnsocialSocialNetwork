@@ -13,10 +13,10 @@ import ImportantClasses.User;
 public class GraphNode {
     
 
+    private int index;
     private User user;
     private EdgeList list;
     private GraphNode pNext;
-    private int index;
     
     public GraphNode(User user){
         this.user = user;

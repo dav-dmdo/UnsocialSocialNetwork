@@ -10,6 +10,7 @@ package EDD;
  * @author Andrea
  */
 public class Stack {
+
     private NodoEDD top;
     private NodoEDD base;
     private int size;
@@ -19,43 +20,47 @@ public class Stack {
         this.base = null;
         this.size = 0;
     }
-    
-    public boolean isEmpty(){
-    return top == null;}
-    
-    public void empty(){
-    this.top = this.base = null;
-    this.size = 0;
+
+    public boolean isEmpty() {
+        return top == null;
     }
-    
-    public NodoEDD pile(int t){
-    NodoEDD toAdd = new NodoEDD(t);
-    if(this.isEmpty()){
-    top = base = toAdd;
-    }else{
-    toAdd.setpNext(top);
-    top = toAdd;}
-    size++;
-    return toAdd;
-    
+
+    public void empty() {
+        this.top = this.base = null;
+        this.size = 0;
     }
-    
-    public NodoEDD unpile(){
+
+    public NodoEDD pile(int t) {
+        NodoEDD toAdd = new NodoEDD(t);
+        if (this.isEmpty()) {
+            top = base = toAdd;
+        } else {
+            toAdd.setpNext(top);
+            top = toAdd;
+        }
+        size++;
+        return toAdd;
+
+    }
+
+    public NodoEDD unpile() {
         NodoEDD toReturn = null;
         if (!this.isEmpty()) {
-            if (size==1) {
+            if (size == 1) {
                 toReturn = top;
                 this.empty();
 
-            }else{
-            toReturn = top;
-            top = top.getpNext();
-            size--;}
-            
-        }return toReturn;
-}
+            } else {
+                toReturn = top;
+                top = top.getpNext();
+                size--;
+            }
 
-    public String print(String printStack){
+        }
+        return toReturn;
+    }
+
+    public String print(String printStack) {
         if (!this.isEmpty()) {
             NodoEDD actual = top;
             this.unpile();
@@ -63,6 +68,6 @@ public class Stack {
             this.pile(actual.getData());
         }
         return printStack;
-}
-    
+    }
+
 }
