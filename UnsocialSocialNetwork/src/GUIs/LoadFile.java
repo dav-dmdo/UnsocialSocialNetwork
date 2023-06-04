@@ -9,25 +9,25 @@ import FileManagement.FileManager;
 import Grafo.GraphM;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author Andrea
  */
 public class LoadFile extends javax.swing.JFrame {
+
     static GraphM graph;
     static FileManager file;
-    
 
     /**
      * Creates new form LoadFile
+     *
      * @param graph
      */
     public LoadFile(GraphM graph) {
         initComponents();
-        this.graph= graph;
+        this.graph = graph;
         this.file = new FileManager();
-         initComponents();
+        initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -124,13 +124,13 @@ public class LoadFile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jFileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooserActionPerformed
-      try{
-          file.fromJFCtoDB();
-          JOptionPane.showMessageDialog(this, "Please remember to save your changes");
-          
-        } catch(Exception e) {
-                JOptionPane.showMessageDialog(null, "Ha ocurrido un error en el cargado del archivo: " + e);
-}                              
+        try {
+            file.fromJFCtoDB();
+            JOptionPane.showMessageDialog(this, "Please remember to save your changes");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error en el cargado del archivo: " + e);
+        }
     }//GEN-LAST:event_jFileChooserActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -139,12 +139,11 @@ public class LoadFile extends javax.swing.JFrame {
     }//GEN-LAST:event_saveActionPerformed
 
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
-showTXT.setText(graph.toString());
+        showTXT.setText(graph.toString());
     }//GEN-LAST:event_showActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        
-        
+
         this.dispose();
     }//GEN-LAST:event_exitActionPerformed
 
