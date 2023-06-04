@@ -7,8 +7,7 @@ package GUIs;
 
 import EDD.List;
 import EDD.NodoEDD;
-import static GUIs.AddUser.graph;
-import Grafo.Graph;
+import Grafo.GraphM;
 import ImportantClasses.Helpers;
 import javax.swing.JOptionPane;
 
@@ -17,12 +16,12 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class DeleteFriend extends javax.swing.JFrame {
-    static Graph graph;
+    static GraphM graph;
 
     /**
      * Creates new form DeleteFriend
      */
-    public DeleteFriend(Graph graph) {
+    public DeleteFriend(GraphM graph) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -160,9 +159,13 @@ public class DeleteFriend extends javax.swing.JFrame {
                     }else{
                      JOptionPane.showMessageDialog(this, "This is not an existing ID");
                      possible = false;
-                    break;}}break;
+                    break;}
+                }
+                break;
+               
                 
-                }if (possible==true) {
+                }
+                if (possible==true) {
                     JOptionPane.showMessageDialog(this, "All the relations are valid! User has been deleted");
                NodoEDD aux = list.getPfirst();
                 for (int i = 0; i < list.getSize(); i++) {

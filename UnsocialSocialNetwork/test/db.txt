@@ -1,5 +1,4 @@
 Usuarios
-121,@Pepe_Gónzales
 123,@EnriqueManrique
 129,@casanova23
 231,@EduardoPetardo
@@ -18,8 +17,6 @@ Usuarios
 907,@Presentesiempre
 909,@obiwan123
 Relaciones
-121,254,7
-121,909,8
 123,231,1
 123,467,6
 123,870,15

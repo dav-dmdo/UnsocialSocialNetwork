@@ -11,14 +11,24 @@ import ImportantClasses.User;
  *
  * @author david
  */
+<<<<<<< HEAD:UnsocialSocialNetwork/src/Grafo/Graph.java
 public class Graph {
 
+=======
+public class GraphM {
+    
+>>>>>>> andrea:UnsocialSocialNetwork/src/Grafo/GraphM.java
     private GraphNode pFirst;
     private GraphNode pLast;
     private int numNodes;
     private int numEdges;
+<<<<<<< HEAD:UnsocialSocialNetwork/src/Grafo/Graph.java
 
     public Graph() {
+=======
+    
+    public GraphM(){
+>>>>>>> andrea:UnsocialSocialNetwork/src/Grafo/GraphM.java
         this.pFirst = null;
         this.pLast = null;
         this.numNodes = 0;
@@ -147,8 +157,14 @@ public class Graph {
             gnUser.setpNext(null);
 
             numNodes--;
+<<<<<<< HEAD:UnsocialSocialNetwork/src/Grafo/Graph.java
             this.indexing();
 
+=======
+            //this.indexing();
+            
+                        
+>>>>>>> andrea:UnsocialSocialNetwork/src/Grafo/GraphM.java
         }
 
     }
