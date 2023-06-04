@@ -66,7 +66,7 @@ public class LoadFile extends javax.swing.JFrame {
                 jFileChooserActionPerformed(evt);
             }
         });
-        jPanel1.add(jFileChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
+        jPanel1.add(jFileChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         save.setBackground(new java.awt.Color(0, 0, 255));
         save.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -77,12 +77,12 @@ public class LoadFile extends javax.swing.JFrame {
                 saveActionPerformed(evt);
             }
         });
-        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("LOAD FILES");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         show.setBackground(new java.awt.Color(0, 0, 255));
         show.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -93,10 +93,10 @@ public class LoadFile extends javax.swing.JFrame {
                 showActionPerformed(evt);
             }
         });
-        jPanel1.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, -1, -1));
+        jPanel1.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/150x150.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/pfp_png-removebg-preview.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         exit.setBackground(new java.awt.Color(0, 0, 255));
         exit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -112,13 +112,13 @@ public class LoadFile extends javax.swing.JFrame {
         showTXT.setEditable(false);
         showTXT.setBackground(java.awt.SystemColor.activeCaptionBorder);
         showTXT.setColumns(20);
-        showTXT.setForeground(new java.awt.Color(0, 0, 0));
+        showTXT.setForeground(new java.awt.Color(0, 0, 255));
         showTXT.setRows(5);
         jScrollPane1.setViewportView(showTXT);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 210, 200));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 600, 400));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 440, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

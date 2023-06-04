@@ -119,7 +119,7 @@ public class Graph {
                 }
             }
             numNodes++;
-            this.indexing();
+            //this.indexing();
         }
     }
     

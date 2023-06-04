@@ -157,7 +157,8 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seeIslesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeIslesActionPerformed
-        // TODO add your handling code here:
+        Isles isles = new Isles(graph);
+        isles.show();
     }//GEN-LAST:event_seeIslesActionPerformed
 
     private void AddUSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUSerActionPerformed
