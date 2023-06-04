@@ -8,6 +8,7 @@ package GUIs;
 import EDD.List;
 import EDD.NodoEDD;
 import static GUIs.AddUser.graph;
+import Grafo.Graph;
 import ImportantClasses.Helpers;
 import javax.swing.JOptionPane;
 
@@ -16,15 +17,17 @@ import javax.swing.JOptionPane;
  * @author Andrea
  */
 public class DeleteFriend extends javax.swing.JFrame {
+    static Graph graph;
 
     /**
      * Creates new form DeleteFriend
      */
-    public DeleteFriend() {
+    public DeleteFriend(Graph graph) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         showUsers.setText(graph.usersToString());
+        this.graph = graph;
     }
 
     /**
@@ -124,7 +127,7 @@ public class DeleteFriend extends javax.swing.JFrame {
                 ExitActionPerformed(evt);
             }
         });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 380));
 
@@ -140,35 +143,41 @@ public class DeleteFriend extends javax.swing.JFrame {
  * @param evt 
  */
     private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
+
         try{
                 String text= removeInput.getText();
                 String[] numbers =text.split(",");
                 List list= new List();
+                boolean possible=true;
+                while(possible == true){
                 for (int i = 0; i < numbers.length; i++) {
                     int number = Integer.parseInt(numbers[i]);
                     number =Helpers.validID2(graph, number);
                     if (number != -1) {
                         list.addFirst(Integer.parseInt(numbers[i]));
                         
-                        //Falta agarrar un for que agarre el primero y lo elimine y asi sucesivamente
-                    
+                        
                     }else{
-                     
-                    break;}
-
+                     JOptionPane.showMessageDialog(this, "This is not an existing ID");
+                     possible = false;
+                    break;}}break;
                 
-                    
-                    
-                }
-             NodoEDD aux = list.getPfirst();
+                }if (possible==true) {
+                    JOptionPane.showMessageDialog(this, "All the relations are valid! User has been deleted");
+               NodoEDD aux = list.getPfirst();
                 for (int i = 0; i < list.getSize(); i++) {
                     graph.deleteNode(aux.getData());
                     showUsers.setText(graph.usersToString());
-                    
-                
+                 
             }
-}catch(Exception e){
-                JOptionPane.showMessageDialog(this, "This is not a valid ID");}
+        
+        
+        //CHECK IF IT EXISTS
+            
+        
+        }}catch(Exception e) {
+        JOptionPane.showMessageDialog(this, "ERROR!" +e);
+        removeInput.setText("");}
     }//GEN-LAST:event_removeActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
@@ -205,7 +214,7 @@ public class DeleteFriend extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeleteFriend().setVisible(true);
+                new DeleteFriend(graph).setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
  */
 package GUIs;
 
+import FileManagement.FileManager;
 import Grafo.Graph;
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class MainView extends javax.swing.JFrame {
     static Graph graph;
+    static FileManager file;
     
 
     /**
@@ -24,6 +26,7 @@ public class MainView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.graph= graph;
+        this.file= new FileManager();
         
     }
 
@@ -81,6 +84,11 @@ public class MainView extends javax.swing.JFrame {
         loadFile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         loadFile.setForeground(new java.awt.Color(255, 255, 255));
         loadFile.setText("Load Files");
+        loadFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadFileActionPerformed(evt);
+            }
+        });
         jPanel1.add(loadFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
 
         showGraph.setBackground(new java.awt.Color(0, 0, 255));
@@ -163,14 +171,21 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bridgeCheckActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        file.writeDBtxt(graph);
         JOptionPane.showMessageDialog(this, "NOTICE! All your last changes have been saved.");
+        
         this.dispose();
     }//GEN-LAST:event_ExitActionPerformed
 
     private void RemoveNodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveNodeActionPerformed
-       DeleteFriend v3= new DeleteFriend();
+       DeleteFriend v3= new DeleteFriend(graph);
        v3.show();
     }//GEN-LAST:event_RemoveNodeActionPerformed
+
+    private void loadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFileActionPerformed
+        LoadFile v6 = new LoadFile(graph);
+        v6.show();
+    }//GEN-LAST:event_loadFileActionPerformed
 
     /**
      * @param args the command line arguments
