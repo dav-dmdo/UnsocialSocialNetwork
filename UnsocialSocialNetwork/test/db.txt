@@ -1,40 +1,43 @@
 Usuarios
-123,@EnriqueManrique
-129,@casanova23
-231,@EduardoPetardo
-239,@justiciero11
-254,@StephaniaCominos
-365,@AndreaStanislao
-412,@Josefina_La_Sifrina
-443,@fuerza_bruta
-467,@trapos232
-512,@RosaMosa
-578,@pitiypo
-758,@yosoylatorre
-788,@bandido121
-870,@venepositivo
-893,@caribu_sol
-907,@Presentesiempre
-909,@obiwan123
+121, @Pepe_Gónzales
+254, @StephaniaCominos
+365, @AndreaStanislao
+412, @Josefina_La_Sifrina
+512, @RosaMosa
+231, @EduardoPetardo
+123, @EnriqueManrique
+129, @casanova23
+870, @venepositivo
+758, @yosoylatorre
+578, @pitiypo
+909, @obiwan123
+893, @caribu_sol
+467, @trapos232
+788, @bandido121
+239, @justiciero11
+443, @fuerza_bruta
+907, @Presentesiempre
 Relaciones
-123,231,1
-123,467,6
-123,870,15
-129,512,10
-129,893,3
-231,870,5
-239,443,6
-239,788,7
-239,907,3
-254,893,1
+121, 254, 7
+121, 909, 8
 254,909,5
-365,578,4
-365,758,9
-412,512,2
-412,788,7
-412,893,4
-443,788,11
-443,907,9
-578,870,7
-758,870,1
-893,909,5
+909, 893, 5
+254, 893, 1
+893, 129, 3
+129, 512, 10
+512, 412, 2
+893, 412, 4
+231, 870, 5
+231, 123, 1
+123, 870, 15
+123, 467, 6
+788, 239, 7
+788, 443, 11
+239, 443, 6
+239, 907, 3
+443, 907, 9
+788, 412, 7
+870, 578, 7
+870, 758, 1
+758, 365, 9
+578, 365, 4

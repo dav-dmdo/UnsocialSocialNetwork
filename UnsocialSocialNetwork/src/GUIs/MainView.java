@@ -243,7 +243,7 @@ public class MainView extends javax.swing.JFrame {
  * @param evt 
  */
     private void RemoveNodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveNodeActionPerformed
-       DeleteFriend v3= new DeleteFriend(graph);
+       DeleteFriend v3= new DeleteFriend(graph, this);
        v3.show();
     }//GEN-LAST:event_RemoveNodeActionPerformed
 /**
@@ -266,9 +266,9 @@ public class MainView extends javax.swing.JFrame {
           String friendships = graph.friendshipsToString();
           String[] user = users.split("\n");
           for (int i = 1; i < user.length; i++) {
-              if (user[i].contains(" ")) {
-                  user[i].replace(" ", "");
-              }
+//              if (user[i].contains(" ")) {
+//                  user[i].replace(" ", "");
+//              }
               
               String[] array= user[i].split(",");
               graphLibrary.addNode(array[0]).setAttribute("ui.label", array[0]);
@@ -277,9 +277,9 @@ public class MainView extends javax.swing.JFrame {
         }
           String[] friends= friendships.split("\n");
           for (int i = 1; i < friends.length; i++) {
-              if (friends[i].contains(" ")) {
-                  friends[i].replace(" ", "");
-              }
+//              if (friends[i].contains(" ")) {
+//                  friends[i].replace(" ", "");
+//              }
               String[] array = friends[i].split(",");
               graphLibrary.addEdge(array[0]+","+array[1],array[0],array[1]).setAttribute("ui.label", array[2]);
             
