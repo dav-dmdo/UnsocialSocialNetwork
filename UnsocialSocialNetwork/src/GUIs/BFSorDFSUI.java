@@ -142,7 +142,7 @@ public class BFSorDFSUI extends javax.swing.JFrame {
        Recorridos BFS= new Recorridos();
        boolean visited[] = new boolean[graph.getNumNodes()];
        PathAndIslands PI = new PathAndIslands();
-       SeeIsles.setText(BFS.BFS(graph, graph.getpFirst(), visited, PI).path);
+       SeeIsles.setText("USERS:\n"+BFS.BFS(graph, graph.getpFirst(),visited,PI).path+"\nNumber of isles: "+BFS.BFS(graph, graph.getpFirst(),visited,PI).numIslands);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
