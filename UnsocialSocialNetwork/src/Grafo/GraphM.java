@@ -293,6 +293,15 @@ public class GraphM {
     public void setNumNodes(int numNodes) {
         this.numNodes = numNodes;
     }
+    
+    public int getNumEdges() {
+        return numEdges;
+    }
+
+    public void setNumEdges(int numEdges) {
+        this.numEdges = numEdges;
+    }
+    
 
     /*
      */
@@ -319,4 +328,5 @@ public class GraphM {
         
     }
      */
+
 }

@@ -262,6 +262,7 @@ public class MainView extends javax.swing.JFrame {
           Graph graphLibrary = new MultiGraph("Unsocial Social Network");
           System.setProperty("org.graphstream.ui", "swing");
           GraphNode auxNodo = graph.getpFirst();
+          
           String users = graph.usersToString();
           String friendships = graph.friendshipsToString();
           String[] user = users.split("\n");
