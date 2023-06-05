@@ -4,8 +4,6 @@
  */
 package Grafo.Recorridos;
 
-
-import EDD.Stack;
 import FileManagement.FileManager;
 import Grafo.Edge;
 import Grafo.GraphM;
@@ -23,7 +21,7 @@ public class Explorer {
         public void DFS(GraphM g, GraphNode n, boolean [] visited, PathAndIslands PI){
         
         visited[n.getIndex()] = true;
-        PI.path+= n.getUser().getUserID()+"-";
+        PI.path+= n.getUser().getUserID()+"\n";
         System.out.println(n.getUser().getUserID());
         Edge adj = n.getList().getpFirst();
         for (int i = 0; i < n.getList().getSize(); i++) {
@@ -45,6 +43,7 @@ public class Explorer {
             if (!visited[n.getIndex()]){
                 DFS(g, n, visited, PI);
                 System.out.println("---");
+                PI.path+="----\n";
                 PI.numIslands++;
             }
             n = n.getpNext();

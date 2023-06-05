@@ -208,7 +208,7 @@ public class MainView extends javax.swing.JFrame {
  * @param evt 
  */
     private void seeIslesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeIslesActionPerformed
-        Isles isles = new Isles(graph);
+        BFSorDFSUI isles = new BFSorDFSUI(graph);
         isles.show();
     }//GEN-LAST:event_seeIslesActionPerformed
 /**

@@ -7,12 +7,15 @@ package GUIs;
 
 import FileManagement.FileManager;
 import Grafo.GraphM;
+import Grafo.Recorridos.Explorer;
+import Grafo.Recorridos.PathAndIslands;
+import Grafo.Recorridos.Recorridos;
 
 /**
  *
  * @author Andrea
  */
-public class BFSorDFS extends javax.swing.JFrame {
+public class BFSorDFSUI extends javax.swing.JFrame {
     static GraphM graph;
     static FileManager file;
     static int userID;
@@ -20,13 +23,15 @@ public class BFSorDFS extends javax.swing.JFrame {
     /**
      * Creates new form BFSorDFS
      */
-    public BFSorDFS(GraphM graph, int ID) {
+    public BFSorDFSUI(GraphM graph) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.graph= graph;
         this.file= new FileManager();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,7 +49,7 @@ public class BFSorDFS extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        SeeIsles = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
 
@@ -63,12 +68,24 @@ public class BFSorDFS extends javax.swing.JFrame {
 
         DFS.setBackground(new java.awt.Color(0, 0, 255));
         DFS.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DFS.setForeground(new java.awt.Color(255, 255, 255));
         DFS.setText("DFS");
+        DFS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DFSActionPerformed(evt);
+            }
+        });
         jPanel2.add(DFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("BFS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -76,12 +93,12 @@ public class BFSorDFS extends javax.swing.JFrame {
         jLabel2.setText("Please pick a method to do your search:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jTextArea1.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setText("//set text to answer to search\n");
-        jScrollPane1.setViewportView(jTextArea1);
+        SeeIsles.setBackground(java.awt.SystemColor.activeCaptionBorder);
+        SeeIsles.setColumns(20);
+        SeeIsles.setForeground(new java.awt.Color(0, 0, 255));
+        SeeIsles.setRows(5);
+        SeeIsles.setText("\n");
+        jScrollPane1.setViewportView(SeeIsles);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 250, 220));
 
@@ -110,6 +127,23 @@ public class BFSorDFS extends javax.swing.JFrame {
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         this.dispose();
     }//GEN-LAST:event_exitActionPerformed
+/**
+ * This shows DFS explorer
+ * @param evt 
+ */
+    private void DFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DFSActionPerformed
+       Explorer DFS= new Explorer();
+      boolean visited[] = new boolean[graph.getNumNodes()];
+     
+        SeeIsles.setText("USERS:\n"+DFS.completeDFS(graph).path+"\nNumber of isles: "+DFS.completeDFS(graph).numIslands);
+    }//GEN-LAST:event_DFSActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Recorridos BFS= new Recorridos();
+       boolean visited[] = new boolean[graph.getNumNodes()];
+       PathAndIslands PI = new PathAndIslands();
+       SeeIsles.setText(BFS.BFS(graph, graph.getpFirst(), visited, PI).path);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,26 +162,28 @@ public class BFSorDFS extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFSUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFSUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFSUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BFSorDFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFSorDFSUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BFSorDFS(graph, userID).setVisible(true);
+                new BFSorDFSUI(graph).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DFS;
+    private javax.swing.JTextArea SeeIsles;
     private javax.swing.JButton exit;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -156,6 +192,5 @@ public class BFSorDFS extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

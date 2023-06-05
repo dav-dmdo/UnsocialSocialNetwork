@@ -48,7 +48,7 @@ static GraphM graph;
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText("BIRDGE CHECKER");
+        jLabel1.setText("BRIDGE CHECKER");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jTextArea1.setEditable(false);

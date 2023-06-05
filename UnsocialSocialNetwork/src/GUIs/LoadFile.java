@@ -49,7 +49,13 @@ public class LoadFile extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         exit = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        showTXT = new javax.swing.JTextArea();
+        try {
+            showTXT =(javax.swing.JTextArea)java.beans.Beans.instantiate(getClass().getClassLoader(), "GUIs.LoadFile_showTXT");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,11 +115,6 @@ public class LoadFile extends javax.swing.JFrame {
         });
         jPanel1.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
-        showTXT.setEditable(false);
-        showTXT.setBackground(java.awt.SystemColor.activeCaptionBorder);
-        showTXT.setColumns(20);
-        showTXT.setForeground(new java.awt.Color(0, 0, 255));
-        showTXT.setRows(5);
         jScrollPane1.setViewportView(showTXT);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 210, 200));

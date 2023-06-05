@@ -7,8 +7,10 @@ package Grafo.Recorridos;
 
 import EDD.List;
 import EDD.Queue;
+import Grafo.Edge;
 import Grafo.EdgeList;
 import Grafo.GraphM;
+import Grafo.GraphNode;
 /**
  *
  * @author Andrea
@@ -153,7 +155,35 @@ public class Recorridos {
 //        return Bridge;
 //    }
     
-    
+    public PathAndIslands BFS(GraphM g, GraphNode n, boolean [] visited, PathAndIslands PI){
+        int counter=0;
+        for (int i = 0; i < visited.length; i++) {
+            visited[i]=false;
+            
+        }
+        Queue queue = new Queue();
+        queue.addQueue(n);
+        visited[n.getIndex()]=true;
+        while(!queue.isEmpty()){
+        visited[queue.getHead().getIndex()]=true;
+        PI.path += queue.getHead().getUser().getUserID()+"\n";
+            System.out.println(queue.getHead().getUser().getUserID());
+            queue.deQueue();
+            Edge adj = n.getList().getpFirst();
+        for (int i = 0; i < n.getList().getSize(); i++) {
+            if (!visited[adj.getDestination().getIndex()]){
+                queue.addQueue(adj.getDestination());
+                adj = adj.getpNext();
+                
+                
+                }n=n.getpNext();
+                
+            }
+}
+        
+        
+        return PI;
+}
     
     
     

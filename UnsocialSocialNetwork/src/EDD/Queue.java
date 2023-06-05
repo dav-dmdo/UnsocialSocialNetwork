@@ -5,14 +5,16 @@
  */
 package EDD;
 
+import Grafo.GraphNode;
+
 /**
  *
  * @author Andrea Linares
  */
 public class Queue {
     //ATRIBUTES
-    private NodoEDD head;
-    private NodoEDD tail;
+    private GraphNode head;
+    private GraphNode tail;
     private int size;
 
     //CONSTRUCTOR
@@ -45,11 +47,12 @@ public class Queue {
     
     /**
      * Takes element out of queue (firs element added or head)
-     * @return NodoQUeueu
+     * @return GraphNode
      */
-    public NodoEDD deQueue(){
-        NodoEDD aux =null;
+    public GraphNode deQueue(){
+        
         if (!this.isEmpty()) {
+            GraphNode aux =null;
             if (size ==1) {
                 aux = head;
                 this.empty();
@@ -58,23 +61,23 @@ public class Queue {
             aux = head;
             head = head.getpNext();
             size--;}
-            
-        }
-        return head;
+            return aux;
+        }    return null;    
+
 }
 
     /**
      * This adds an element to the queue receiving a node.
      * @param toAdd 
      */
-    public void addQueue(int toAdd) {
-        NodoEDD toAdds = new NodoEDD(toAdd);
+    public void addQueue(GraphNode toAdd) {
+        
         if (this.isEmpty()) {
-            this.head = this.tail = toAdds;
+            this.head = this.tail = toAdd;
 
         } else {
-            tail.setpNext(toAdds);
-            tail = toAdds;
+            tail.setpNext(toAdd);
+            tail = toAdd;
         }
         size++;
     }
@@ -83,48 +86,48 @@ public class Queue {
     * This returns a string ready to print of the elements of a queue.
     * @return null if its empty and a string ready to print if its not.
     */
-    public String printQueue() {
-        if (!this.isEmpty()) {
-            String toPrint = "";
-            for (int i = 0; i < size; i++) {
-                NodoEDD current = head;
-                this.deQueue();
-                toPrint += current.getData() + "--> ";
-                this.addQueue(current.getData());
-
-            }
-            return toPrint;
-
-        }
-        return null;
-    }
+//    public String printQueue() {
+//        if (!this.isEmpty()) {
+//            String toPrint = "";
+//            for (int i = 0; i < size; i++) {
+//                GraphNode current = head;
+//                this.deQueue();
+//                toPrint += current.getData() + "--> ";
+//                this.addQueue(current.getData());
+//
+//            }
+//            return toPrint;
+//
+//        }
+//        return null;
+//    }
 
 //GETTERS AND SETTERS
     /**
      * @return the head
      */
-    public NodoEDD getHead() {
+    public GraphNode getHead() {
         return head;
     }
 
     /**
      * @param head the head to set
      */
-    public void setHead(NodoEDD head) {
+    public void setHead(GraphNode head) {
         this.head = head;
     }
 
     /**
      * @return the tail
      */
-    public NodoEDD getTail() {
+    public GraphNode getTail() {
         return tail;
     }
 
     /**
      * @param tail the tail to set
      */
-    public void setTail(NodoEDD tail) {
+    public void setTail(GraphNode tail) {
         this.tail = tail;
     }
 
